@@ -1,0 +1,9 @@
+*.o
+*.pdf
+*.cpp.o
+*.obj
+*.dll
+*.exe
+*.zip
+*.bz2
+*.tar.gz

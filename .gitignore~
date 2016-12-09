@@ -1,0 +1,6 @@
+*.o
+*.pdf
+*.cpp.o
+*.obj
+*.dll
+*.exe

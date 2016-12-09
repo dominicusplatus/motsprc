@@ -1,11 +1,7 @@
 
 #include "tspdrouteinit.h"
 #include "moroutegraph.h"
-
 #include <utils/eoRNG.h>
-
-#include "route_init.h"
-#include "graph.h"
 
 void TspDRouteInit :: operator () (TspDRoute & __route) {
 

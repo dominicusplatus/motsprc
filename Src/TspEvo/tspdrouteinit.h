@@ -2,8 +2,6 @@
 #define TSPDROUTEINIT_H
 
 #include <eoInit.h>
-
-#include "route.h"
 #include "MOEO/tspobjectivevector.h"
 #include "MOEO/tspdroute.h"
 

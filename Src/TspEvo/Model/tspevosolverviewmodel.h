@@ -33,7 +33,6 @@
 #include <es/eoRealInitBounded.h>
 
 #include "MOEO/polynomialmutation.h"
-#include "MOEO/sbxcrossover.h"
 #include "MOEO/tspobjectivevector.h"
 #include "MOEO/tspdroute.h"
 

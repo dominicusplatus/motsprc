@@ -2,17 +2,18 @@
 #define TSPXOVERDUAL_H
 
 #include <assert.h>
-
 #include <utils/eoRNG.h>
-
-#include "partial_mapped_xover.h"
-#include "route_valid.h"
-#include "mix.h"
-
 #include <eoOp.h>
-
-#include "route.h"
 #include "MOEO/tspdroute.h"
+
+
+template <class T> void mix(std::vector<T> &__vect)
+{
+    for(unsigned i=0;i<__vect.size();i++){
+        std::swap(__vect[i],__vect[rng.random(__vect.size())]);
+    }
+
+}
 
 /** Partial Mapped Crossover */
 class TspDualXover : public eoQuadOp <TspDRoute> {

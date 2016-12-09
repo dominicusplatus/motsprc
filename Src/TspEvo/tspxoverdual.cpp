@@ -4,7 +4,10 @@
 
 void TspDualXover :: repair (TspDRoute & __route, unsigned __cut1, unsigned __cut2) {
 
-    unsigned v [__route.size ()] ; // Number of times a cities are visited ...
+    int size = __route.size();
+    std::vector<unsigned> v; //[size]; // Number of times a cities are visited ...
+    v.clear();
+    v.resize(size);
 
       for (unsigned i = 0 ; i < __route.size () ; i ++)
         v [i] = 0 ;
@@ -18,7 +21,7 @@ void TspDualXover :: repair (TspDRoute & __route, unsigned __cut1, unsigned __cu
         if (! v [i])
           vert.push_back (i) ;
 
-      mix (vert) ;
+      mix<unsigned> (vert) ;
 
       for (unsigned i = 0 ; i < __route.size () ; i ++)
         if (i < __cut1 || i >= __cut2)

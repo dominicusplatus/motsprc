@@ -3,7 +3,6 @@
 
 #include "MOEO/tspobjectivevector.h"
 #include <core/moeoVector.h>
-#include "route.h"
 #include <eoVector.h>
 #include <core/moeoVector.h>
 #include <MOEO/tspobjectivevector.h>

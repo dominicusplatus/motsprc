@@ -6,7 +6,6 @@
 #include <iostream>
 
 #include <utils/eoMonitor.h>
-#include <utils/eoLogger.h>
 #include <eoObject.h>
 
 

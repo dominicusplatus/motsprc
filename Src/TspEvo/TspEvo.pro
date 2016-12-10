@@ -34,8 +34,6 @@ HEADERS += \
     Model/tspevosolverviewmodel.h \
     Model/tspevofitnesshistorydatamodel.h \
     tsppathgraphview.h \
-    MOEO/polynomialmutation.h \
-    MOEO/zdtobjectivevector.h \
     MOEO/tspobjectivevector.h \
     MOEO/tspdroute.h \
     tspdataservice.h \
@@ -50,7 +48,10 @@ HEADERS += \
     tspvertex.h \
     tspgenerationevaluationcheckpoint.h \
     tspgenerationprogressmonitor.h \
-    Model/tspproblemdataset.h
+    Model/tspproblemdataset.h \
+    paradislibcommon.h \
+    tspsolver.h \
+    tspbaseextlib.h
 
 DISTFILES +=
 
@@ -59,11 +60,14 @@ INCLUDEPATH +=  "$$PWD\paradiseo\include" \
                 "$$PWD\paradiseo\include\mo"  \
                 "$$PWD\paradiseo\include\moeo"
 
-LIBS += -L"$$PWD\paradiseo\lib32"
-
-
+LIBS += -L$$PWD\paradiseo\lib32
 LIBS += -lcma -leo -les -leoutils -lga -lmoeo
 
-QMAKE_LFLAGS_WINDOWS += -mwindows
+QMAKE_LFLAGS_WINDOWS += -mwindows \
+                        -static-libstdc++
+QMAKE_LFLAGS += -static-libgcc -static-libstdc++
+
+QMAKE_CXXFLAGS_DEBUG  += -O0
+QMAKE_CXXFLAGS_RELEASE += -O2
 
 DEFINES += WIN32

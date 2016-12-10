@@ -2,6 +2,8 @@
 #include "moroutegraph.h"
 #include "tspdualeval.h"
 
+using namespace std;
+
  std::vector<std::vector <TspDRoute*>> TspRouteHistory;
  std::vector<eoPop <TspDRoute>> TspRoutePopulationsHistory;
 
@@ -20,6 +22,9 @@
 
     void DesignateParetoFrontSolutionsForPopulation(int limit,eoPop <TspDRoute> pop)
     {
+        if(limit > pop.size()){
+            return;
+        }
         BestTspRoutes.clear();
 
         int result = 0;
@@ -35,16 +40,36 @@
 
         int routes = pop.size();
         int rinc = 0;
-        for(rinc=0; rinc<routes;rinc++){
-            TspDRoute rt = pop[rinc];
-            TspDualEval eval;
-            double routeLen = eval.length(rt);
-            if(routeLen < eval.length(best) ){
-                best = rt;
-            }
-
+       // eoPop <TspDRoute> routesLeft = pop;
+        QList<TspDRoute> routesLeft;
+        unsigned routeinc;
+        for( routeinc =0; routeinc < pop.size();routeinc++)
+        {
+            routesLeft.push_back(pop[routeinc]);
         }
 
-        BestTspRoutes.push_back(best);
+        vector<int> selected;
+        int rleft = limit;
+
+        do{
+            int selinc =0;
+            for(rinc=0; rinc<routesLeft.size();rinc++){
+                TspDRoute rt = routesLeft[rinc];
+                TspDualEval eval;
+                double routeLen = eval.length(rt);
+                if(routeLen < eval.length(best)  ){
+                    best = rt;
+                    selinc = rinc;
+                    selected.push_back(rinc);
+                }
+
+            }
+            BestTspRoutes.push_back(best);
+            best =  pop[0];
+            routesLeft.removeAt(selinc);
+            //pop.erase(routesLeft.begin() +selinc);
+            rleft-=1;
+        }while(rleft >0);
+
 
     }

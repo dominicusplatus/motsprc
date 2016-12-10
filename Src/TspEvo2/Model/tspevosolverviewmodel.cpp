@@ -202,6 +202,10 @@ void TspEvoSolverViewModel::SolveMOEO()
 */
 
 
+       //designate best solutions for last gen
+       DesignateParetoFrontSolutionsForPopulation(4, TspRoutePopulationsHistory[TspRoutePopulationsHistory.size()-1]);
+
+
          emit populationChanged(TspRoutes);
          QModelIndex indexA = this->index(0, 0, QModelIndex());
          QModelIndex indexC = this->index(tspGenerations, 1, QModelIndex());

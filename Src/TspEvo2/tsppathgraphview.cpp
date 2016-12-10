@@ -20,76 +20,22 @@ TspPathGraphView::TspPathGraphView(QQuickItem *parent): QQuickPaintedItem(parent
 }
 //![0]
 
+ int TspPathGraphView::getIndex()
+ {
+    return m_index;
+ }
+
+ void TspPathGraphView::setIndex(int id)
+ {
+    m_index = id;
+    emit indexChanged(m_index);
+ }
+
  int TspPathGraphView::length()
 {
     return m_length;
 }
 
-void TspPathGraphView::redraw()
-{
-      QPen GraphPen;
-      QPen GraphComplementPen;
-      QPen VerticleDescPen;
-
-      GraphPen = QPen(Qt::black);
-      GraphPen.setWidth(1);
-
-      GraphComplementPen = QPen(Qt::red);
-      GraphComplementPen.setWidth(1);
-
-      VerticleDescPen = QPen(Qt::darkGreen);
-      VerticleDescPen.setWidth(1);
-
-      textFont.setPointSize(16);
-
-     // painter->fillRect(event->rect(), background);
-
-      m_painter->save();
-      m_painter->setBrush(circleBrush);
-      m_painter->setPen(GraphPen);
-      m_painter->setFont(textFont);
-      int verts = MORouteGraph::size();
-
-      if ( verts > 0)
-      {
-          QVector<QPoint> vertPos;
-          int frameWidth = 200, frameHeight = 200;
-          int posMaxX = 50;
-          int posMaxY = 50;
-
-
-          //draw verticles
-          int vertX = 0 , vertY = 0;
-          int vertNo = 0;
-
-          //get first route
-          if(TspRoutes.size() < 1){
-              return;
-          }
-          TspDRoute rt = TspRoutes[0];
-
-          if(rt.size() < verts){
-              return;
-          }
-
-          //draw graph
-          QPoint from, to;
-          m_painter->setPen(GraphPen);
-          for (vertNo = 0; vertNo < verts/2; vertNo++)
-          {
-             std::pair <double, double> coordsFrom = MORouteGraph::getCityCoords(rt[vertNo*2]);
-             std::pair <double, double> coordsTo = MORouteGraph::getCityCoords(rt[vertNo*2+1]);
-              from.setX( coordsFrom.first);
-              from.setY(coordsFrom.second);
-              to.setX( coordsTo.first);
-              to.setY(coordsTo.second);
-              m_painter->drawLine(from, to);
-        }
-      }
-
-}
-
-//![1]
 void TspPathGraphView::paint(QPainter *painter)
 {
     QColor color = QColor("#439911");
@@ -121,41 +67,46 @@ void TspPathGraphView::paint(QPainter *painter)
        if ( verts > 0)
        {
            QVector<QPoint> vertPos;
-           int frameWidth = 400, frameHeight = 400;
-           int posMaxX = 50;
-           int posMaxY = 50;
-
+           int frameWidth = 1024/2, frameHeight = 768/2;
 
            //draw verticles
            int vertX = 0 , vertY = 0;
            int vertNo = 0;
 
-           /*
-           std::vector<TspDRoute> bestRoutes;
-           int ginc =0;
-           for(ginc=0; ginc<TspRoutePopulationsHistory.size();ginc++)
-           {
-               eoPop<TspDRoute> pop = TspRoutePopulationsHistory[ginc];
-               TspDRoute bestroute = GetPopulationBestRoute(pop);
-
-           }
-           */
-
-
-
-           DesignateParetoFrontSolutionsForPopulation(1, TspRoutePopulationsHistory[TspRoutePopulationsHistory.size()-1]);
            //get first route
            if(BestTspRoutes.size() < 1){
                return;
            }
-           TspDRoute rt = BestTspRoutes[0];
+           TspDRoute rt = BestTspRoutes[m_index];
 
            if(rt.size() < verts){
                return;
            }
 
+           int startX = 0;
+           int startY = 0;
 
+           /*
+            if(m_index == 0)
+            {
 
+            }
+            else if (m_index == 1)
+            {
+                startX = frameWidth/2;
+                startY = 0;
+            }
+            else if (m_index == 2)
+            {
+                startX = 0;
+                startY = frameHeight/2;
+            }
+            else if (m_index == 3)
+            {
+                startX = frameWidth/2;
+                startY = frameHeight/2;
+            }
+*/
            //draw graph
            QPoint from, to, prev;
            painter->setPen(GraphPen);
@@ -163,8 +114,8 @@ void TspPathGraphView::paint(QPainter *painter)
 
               //store first point
            std::pair <double, double> coordsFrom = MORouteGraph::getCityCoords(rt[0]);
-           prev.setX(coordsFrom.first);
-           prev.setY(coordsFrom.second);
+           prev.setX(startX + coordsFrom.first);
+           prev.setY(startY + coordsFrom.second);
            painter->drawText( prev, QString::number(0) );
 
            int sumLen = 0;
@@ -173,22 +124,16 @@ void TspPathGraphView::paint(QPainter *painter)
            {
                to = QPoint();
               std::pair <double, double> coordsTo = MORouteGraph::getCityCoords(rt[vertNo]);
-               to.setX( coordsTo.first );
-               to.setY(coordsTo.second );
+               to.setX( startX + coordsTo.first );
+               to.setY( startY + coordsTo.second );
                painter->drawText( to, QString::number(vertNo) );
                painter->drawLine(prev, to);
-
-               int diffX = abs( to.x() - prev.x());
-               int diffY = abs( to.y() - prev.y());
-
-               //sumLen += (int) ( sqrt( pow(diffX,2) + pow(diffY,2) ) );
-
                prev = to;
          }
 
            //last to first
-           to.setX(coordsFrom.first);
-           to.setY(coordsFrom.second);
+           to.setX(startX+coordsFrom.first);
+           to.setY(startY+coordsFrom.second);
            painter->drawLine(prev, to);
 
            TspDualEval eval;
@@ -196,9 +141,9 @@ void TspPathGraphView::paint(QPainter *painter)
            m_length = len1;
 
            QPoint resPt;
-           resPt.setX( 170);
-           resPt.setY(170);
-            painter->drawText( resPt, QString::number(len1) );
+           resPt.setX(startX + 170);
+           resPt.setY(startY + 170);
+            painter->drawText( resPt,QString("Length: ")+ QString::number(len1) );
 
        }
 

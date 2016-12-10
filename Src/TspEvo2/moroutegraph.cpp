@@ -128,17 +128,24 @@ namespace MORouteGraph {
   }
 
   double distance (unsigned __from, unsigned __to) {
-
+      if(__from > dist.size() || __to > dist.size()){
+          return  0;
+      }
     return dist [__from] [__to] ;
   }
 
  double cost(unsigned __from, unsigned __to) {
-
+     if(__from > costs.size() || __to > costs.size()){
+         return  0;
+     }
     return costs [__from] [__to] ;
   }
 
  std::pair <double, double> getCityCoords(unsigned city)
 {
+     if(city > vectCoord.size()){
+         return  std::pair<double, double>();
+     }
     return vectCoord[city];
 }
 

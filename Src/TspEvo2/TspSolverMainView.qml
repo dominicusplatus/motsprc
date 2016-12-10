@@ -42,6 +42,8 @@ Rectangle {
                 id: gridLayoutGraphs
                 columns: 2
                 rows : 2
+                rowSpacing: 0
+                columnSpacing: 0
                 width: parent.width
                 height : parent.height
 
@@ -69,7 +71,7 @@ Rectangle {
 
                     TspPathGraphView
                     {
-                        id: graphView12
+                        id: graphView2
                         width: parent.width
                         height : parent.height
                         fillColor: "transparent"
@@ -86,7 +88,7 @@ Rectangle {
 
                     TspPathGraphView
                     {
-                        id: graphView123
+                        id: graphView3
                         width: parent.width
                         height : parent.height
                         fillColor: "transparent"
@@ -103,7 +105,7 @@ Rectangle {
 
                     TspPathGraphView
                     {
-                        id: graphView1234
+                        id: graphView4
                         width: parent.width
                         height : parent.height
                         fillColor: "transparent"
@@ -405,7 +407,17 @@ Rectangle {
                     onClicked: {
                         solverModel.SolveMOEO();
                       //  solverModel.GetResult();
+                        graphView1.setIndex(0);
                         graphView1.update();
+
+                        graphView2.setIndex(1);
+                        graphView2.update();
+
+                        graphView3.setIndex(2);
+                        graphView3.update();
+
+                        graphView4.setIndex(3);
+                        graphView4.update();
 
                         surfaceModel.updateData();
                        // TspDualSolverResultSurfaceViewModel.endResetModel();

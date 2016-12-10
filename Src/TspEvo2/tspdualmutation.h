@@ -1,8 +1,8 @@
 #ifndef TSPDUALMUTATION_H
 #define TSPDUALMUTATION_H
 
-#include "tspbaseextlib.h"
-#include "MOEO/tspdroute.h"
+#include <eoOp.h>
+#include <MOEO/tspdroute.h>
 
 /**
  * Exchange mutation operator for the flow-shop

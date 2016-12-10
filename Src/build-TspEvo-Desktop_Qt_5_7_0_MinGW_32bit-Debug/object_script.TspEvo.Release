@@ -59,8 +59,12 @@ INPUT(
 ./release\eoScalarFitnessAssembled.o
 ./release\eoSIGContinue.o
 ./release\moeoObjectiveVectorTraits.o
+./release\tspdualsolverresultsurfaceviewmodel.o
+./release\qsurfacemodelresultvertextsp.o
 ./release\qrc_qml.o
 ./release\moc_tspevosolverviewmodel.o
 ./release\moc_tspevofitnesshistorydatamodel.o
 ./release\moc_tsppathgraphview.o
+./release\moc_tspdualsolverresultsurfaceviewmodel.o
+./release\moc_qsurfacemodelresultvertextsp.o
 );

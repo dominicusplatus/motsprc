@@ -61,7 +61,9 @@ SOURCES += main.cpp \
     paradiseo/eo/src/eoPrintable.cpp \
     paradiseo/eo/src/eoScalarFitnessAssembled.cpp \
     paradiseo/eo/src/eoSIGContinue.cpp \
-    paradiseo/moeo/src/core/moeoObjectiveVectorTraits.cpp
+    paradiseo/moeo/src/core/moeoObjectiveVectorTraits.cpp \
+    tspdualsolverresultsurfaceviewmodel.cpp \
+    qsurfacemodelresultvertextsp.cpp
 
 RESOURCES += qml.qrc
 
@@ -73,8 +75,7 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-HEADERS += \
-    tspevosolverviewmodel.h \
+HEADERS +=  tspevosolverviewmodel.h \
     Model/tspevosolverviewmodel.h \
     Model/tspevofitnesshistorydatamodel.h \
     tsppathgraphview.h \
@@ -156,6 +157,7 @@ HEADERS += \
     paradiseo/eo/src/other/external_eo \
     paradiseo/eo/src/utils/checkpointing \
     paradiseo/eo/src/utils/compatibility.h \
+    tspdualsolverresultsurfaceviewmodel.h \
     paradiseo/eo/src/utils/eoAssembledFitnessStat.h \
     paradiseo/eo/src/utils/eoCheckPoint.h \
     paradiseo/eo/src/utils/eoData.h \
@@ -658,27 +660,8 @@ HEADERS += \
     paradiseo/moeo/src/utils/moeoFullEvalByCopy.h \
     paradiseo/moeo/src/utils/moeoObjectiveVectorNormalizer.h \
     paradiseo/moeo/src/utils/moeoObjVecStat.h \
-    paradiseo/moeo/src/moeo
-
-DISTFILES += \
-    paradiseo/lib32/libcma.a \
-    paradiseo/lib32/libeo.a \
-    paradiseo/lib32/libeoutils.a \
-    paradiseo/lib32/libes.a \
-    paradiseo/lib32/libga.a \
-    paradiseo/lib32/libmoeo.a \
-    paradiseo/lib32/pkgconfig/eo.pc \
-    paradiseo/eo/src/es/ChangeLog \
-    paradiseo/eo/src/ga/ChangeLog \
-    paradiseo/eo/src/utils/ChangeLog \
-    paradiseo/eo/src/es/CMakeLists.txt \
-    paradiseo/eo/src/ga/CMakeLists.txt \
-    paradiseo/eo/src/utils/CMakeLists.txt \
-    paradiseo/eo/src/CMakeLists.txt \
-    paradiseo/mo/src/CMakeLists.txt \
-    paradiseo/moeo/src/CMakeLists.txt \
-    paradiseo/eo/src/do/Readme \
-    paradiseo/eo/src/ga/Readme
+    paradiseo/moeo/src/moeo \
+    qsurfacemodelresultvertextsp.h
 
 INCLUDEPATH +=  "$$PWD\paradiseo\include" \
                 "$$PWD\paradiseo\include\eo" \
@@ -720,4 +703,4 @@ INCLUDEPATH +=  "$$PWD\paradiseo\include" \
 "$$PWD\paradiseo\eo\src\moeo\replacement" \
 "$$PWD\paradiseo\eo\src\moeo\scalarStuffs" \
 "$$PWD\paradiseo\eo\src\moeo\selection" \
-"$$PWD\paradiseo\eo\src\moeo\utils" \
+"$$PWD\paradiseo\eo\src\moeo\utils"

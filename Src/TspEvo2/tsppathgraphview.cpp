@@ -1,7 +1,6 @@
 #include "tsppathgraphview.h"
 #include "moroutegraph.h"
 #include "tspdualeval.h"
-#include "tspdataservice.h"
 
 //![0]
 TspPathGraphView::TspPathGraphView(QQuickItem *parent): QQuickPaintedItem(parent)

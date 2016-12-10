@@ -1,5 +1,6 @@
 #include "tspevosolverviewmodel.h"
 
+#include <QCoreApplication>
 
  void TspEvoSolverViewModel::SetMethod(int id)
  {
@@ -14,75 +15,19 @@
 
 TspEvoSolverViewModel::TspEvoSolverViewModel(QObject *parent) : QAbstractTableModel(parent)
 {
- //   historyModel = new TspEvoFitnessHistoryDataModel(parent);
-   // m_historyModel.bindToModel(m_data);
-       m_populationsize = 40;
+       tspPopSize = 10;
        m_columnCount = 4;
-       m_generations = 400;
-       m_mutationProb = 0.02;
-       m_rowCount = m_populationsize;
+       tspGenerations = 40;
+       m_mutationProb = 1.0;
+       m_rowCount = tspPopSize;
 
-       Solve();
+       //Solve();
 }
 
 
 void TspEvoSolverViewModel::Solve()
 {
-    /*
-    int popSize = (int)m_populationsize;
-    Graph :: load ("/home/dominicus/Documents/INF/paretoevo/Src/TSP/benchs/ali535.tsp") ; // Instance
-    RouteInit init ; // Sol. Random Init.
-    RouteEval full_eval ; // Full Evaluator
-    eoPop <TspDRoute> pop(popSize, init) ; // Population
-    TspRoutes = pop;
 
-    apply <TspDRoute> (full_eval, pop) ;
-    eoGenContinue <TspDRoute> cont(m_generations) ;
-    eoStochTournamentSelect <TspDRoute> select_one ; // Selector
-    eoSelectNumber <TspDRoute> select (select_one, popSize) ;
-
-    //  OrderXover cross ; // Order Crossover
-    PartialMappedXover cross ;
-    CitySwap mut ; // City Swap Mutator
-    eoSGATransform <TspDRoute> transform (cross, 1, mut, m_mutationProb) ;
-    eoElitism <TspDRoute> merge (1) ; // Use of Elistism
-    eoStochTournamentTruncate <TspDRoute> reduce (0.7) ; // Stoch. Replacement
-    eoEasyEA <TspDRoute> ea (cont, full_eval, select, transform, merge, reduce) ;
-    eoCheckPoint<TspDRoute> checkpoint(cont);
-
-    // Create a counter parameter
-    eoValueParam<unsigned> generationCounter(0, "Generation");
-    eoIncrementor<unsigned> increment(generationCounter.value());
-
-    eoAverageStat<TspDRoute>  stat;
-    checkpoint.add(stat);
-    eoSecondMomentStats<TspDRoute> stats;
-    checkpoint.add(stats);
-     ea (pop);
-
-       std :: cout << "[To] " << pop.best_element () << std :: endl ;
-        beginResetModel();
-       m_data.clear();
-       int pint = 0;
-
-       for(pint = 0; pint<pop.size();pint++){
-           QVector<qreal> val;
-           val.push_back((qreal)pint);
-           val.push_back((qreal)pop[pint].fitness());
-           m_data.push_back(val);
-       }
-
-     m_rowCount = m_populationsize;
-
-     endResetModel();
-
-     emit populationChanged(TspRoutes);
-
-       QModelIndex indexA = this->index(0, 0, QModelIndex());
-       QModelIndex indexC = this->index(m_populationsize, 1, QModelIndex());
-       UpdateDataRange();
-       emit dataChanged(indexA, indexC);
-*/
 }
 
 
@@ -128,38 +73,38 @@ TspDRoute TspEvoSolverViewModel::GetPopulationBestRoute(eoPop<TspDRoute> pop)
 void TspEvoSolverViewModel::SolveMOEO()
 {
     QString problemPath;
+    QString pathRoot = QCoreApplication::applicationDirPath();
     if(dataSet == ALI535){
-            MORouteGraph :: load ("/home/dominicus/Documents/INF/paretoevo/Src/TSP/benchs/ali535.tsp") ; // Instance
+            MORouteGraph :: load (  (pathRoot+ QString("benchs/ali535.tsp")).toStdString().c_str() ) ; // Instance
     }
     else if (dataSet == ELI101)
     {
-            MORouteGraph :: load ("/home/dominicus/Documents/INF/paretoevo/Src/TSP/benchs/eil101.tsp") ; // Instance
+            MORouteGraph :: load ( (pathRoot+ QString("/benchs/eil101.tsp")).toStdString().c_str() ) ; // Instance
     }
     else if (dataSet == PR2392)
     {
-            MORouteGraph :: load ("/home/dominicus/Documents/INF/paretoevo/Src/TSP/benchs/pr2392.tsp") ; // Instance
+            MORouteGraph :: load ((pathRoot+ QString("/benchs/pr2392.tsp")).toStdString().c_str() ) ; // Instance
     }
     else if (dataSet == RL5915)
     {
-            MORouteGraph :: load ("/home/dominicus/Documents/INF/paretoevo/Src/TSP/benchs/rl5915.tsp") ; // Instance
+            MORouteGraph :: load ( (pathRoot+ QString("/benchs/rl5915.tsp")).toStdString().c_str()) ; // Instance
     }
     else if (dataSet == USA13509)
     {
-            MORouteGraph :: load ("/home/dominicus/Documents/INF/paretoevo/Src/TSP/benchs/usa13509.tsp") ; // Instance
+            MORouteGraph :: load ( (pathRoot+ QString("/benchs/usa13509.tsp")).toStdString().c_str() ) ; // Instance
     }
     else if (dataSet == ATH1)
     {
-            MORouteGraph :: load ("/home/dominicus/Documents/INF/paretoevo/Src/TSP/benchs/test1.tsp") ; // Instance
+            MORouteGraph :: load ( (pathRoot+ QString("/benchs/test1.tsp")).toStdString().c_str() ) ; // Instance
     }
     else if (dataSet == ATH2)
     {
-            MORouteGraph :: load ("/home/dominicus/Documents/INF/paretoevo/Src/TSP/benchs/test2.tsp") ; // Instance
+            MORouteGraph :: load ( (pathRoot+ QString("/benchs/test2.tsp")).toStdString().c_str() ) ; // Instance
     }
-
-
 
         eoState state;                // to keep all things allocated
 
+        /*
         double P_CROSS = 1.0;
         double EXT_P_MUT = 1.0;
         double INT_P_MUT = 0.083;
@@ -167,6 +112,7 @@ void TspEvoSolverViewModel::SolveMOEO()
         unsigned int NB_OBJ= (unsigned int)(2);
         unsigned int ARC_SIZE =  100;
         unsigned int K = (10);
+    */
 
         TspRoutePopulationsHistory.clear();
         TspRouteHistory.clear();
@@ -185,7 +131,7 @@ void TspEvoSolverViewModel::SolveMOEO()
          TspDualXover xover;
          TspDualMutation  mutation; // (bounds, INT_P_MUT, 20);
 
-         eoGenContinue<TspDRoute> term(m_generations);
+         eoGenContinue<TspDRoute> term(tspGenerations);
          eoEvalFuncCounter<TspDRoute> evalFunc(*eval);
          eoCheckPoint<TspDRoute>* checkpoint;
 
@@ -194,19 +140,20 @@ void TspEvoSolverViewModel::SolveMOEO()
          TspGenerationEvaluationCheckpoint popChkpt;
          checkpoint->add(popChkpt);
 
-         eoSGAGenOp < TspDRoute > op(xover, P_CROSS, mutation, EXT_P_MUT);
+         eoSGAGenOp < TspDRoute > op(xover, m_crossoverProb, mutation, m_mutationProb);
          moeoAdditiveEpsilonBinaryMetric < TSPObjectiveVector > metric;
 
 
          TspDRouteInit drouteInit ; // Sol. Random Init.
-         eoPop <TspDRoute> pop(m_populationsize, drouteInit) ; // Population
+         eoPop <TspDRoute> pop(tspPopSize, drouteInit) ; // Population
+
          if(solverAlgorithm == IBEA ){
                 moeoIBEA<TspDRoute> algo(*checkpoint, evalFunc ,op, metric) ;
                  do_run(algo, pop);
          }
          else if (solverAlgorithm == SPEA2 ){
-                moeoSPEA2Archive<TspDRoute> arch(ARC_SIZE);
-                moeoSPEA2<TspDRoute> algo(*checkpoint, evalFunc ,xover, P_CROSS, mutation, EXT_P_MUT, arch, K, false);
+                moeoSPEA2Archive<TspDRoute> arch(m_param_SPEA_Arch);
+                moeoSPEA2<TspDRoute> algo(*checkpoint, evalFunc ,xover, m_crossoverProb, mutation, 0.01, arch, m_param_SPEA_K, false);
                   do_run(algo, pop);
          }
          else if (solverAlgorithm == NSGA ){
@@ -241,13 +188,23 @@ void TspEvoSolverViewModel::SolveMOEO()
           beginResetModel();
          lengthHistory.clear();
 
-       m_rowCount = m_generations;
+       m_rowCount = tspGenerations;
        ProcessPopulationHistory();
        endResetModel();
 
+
+       //COMPARE
+/*
+        eoPop<TspDRoute> bestPop;
+        moeoParetoObjectiveVectorComparator<TSPObjectiveVector> objcomp;
+        TspDualObjectiveVectorComparator<TspDRoute> comparator;
+        comparator(bestPop,pop,objcomp);
+*/
+
+
          emit populationChanged(TspRoutes);
          QModelIndex indexA = this->index(0, 0, QModelIndex());
-         QModelIndex indexC = this->index(m_generations, 1, QModelIndex());
+         QModelIndex indexC = this->index(tspGenerations, 1, QModelIndex());
 
          UpdateDataRange();
          emit dataChanged(indexA, indexC);
@@ -280,12 +237,12 @@ void  TspEvoSolverViewModel::ProcessPopulationHistory()
         moeoRouteLengthBestHistory.push_back( routeLen );
         moeoRouteCostBestHistory.push_back( routeCost );
 
-        QVector<qreal> val;
+        std::vector<qreal> val;
         val.push_back((qreal)ginc);
         val.push_back((qreal)routeLen);
         lengthHistory.push_back(val);
 
-        QVector<qreal> val2;
+        std::vector<qreal> val2;
         val2.push_back((qreal)ginc);
         val2.push_back((qreal)routeCost);
         costHistory.push_back(val2);
@@ -312,18 +269,39 @@ void TspEvoSolverViewModel::setPopulation(eoPop <TspDRoute> a)
 
 void TspEvoSolverViewModel::setpopulationSize(qreal a)
 {
-    m_populationsize = a;
+    tspPopSize = a;
 }
 
 void TspEvoSolverViewModel::setGenerations(qreal a)
 {
-    m_generations = a;
+    tspGenerations = a;
 }
 
 void TspEvoSolverViewModel::setMutationProb(qreal a)
 {
     m_mutationProb = a;
+    emit mutationProbChanged(m_mutationProb);
 }
+
+void TspEvoSolverViewModel::setkfactor(qreal a)
+{
+    m_param_SPEA_K = a;
+    emit kfactorChanged(m_param_SPEA_K);
+}
+
+void TspEvoSolverViewModel::setarchSize(qreal a)
+{
+    m_param_SPEA_Arch = a;
+    emit archSizeChanged(m_param_SPEA_Arch);
+}
+
+
+void TspEvoSolverViewModel::setCrossoverProb(qreal a)
+{
+    m_crossoverProb = a;
+    emit crossoverProbChanged(m_crossoverProb);
+}
+
 
 void TspEvoSolverViewModel::setfitnessRangeStart(qreal a)
 {
@@ -347,18 +325,34 @@ void TspEvoSolverViewModel::setcostsRangeEnd(qreal a)
 
  qreal TspEvoSolverViewModel::getpopulationSize()
  {
-        return m_populationsize;
+        return tspPopSize;
  }
 
  qreal TspEvoSolverViewModel::getGenerations()
  {
-        return m_generations;
+        return tspGenerations;
  }
 
  qreal TspEvoSolverViewModel::getMutationProb()
  {
         return m_mutationProb;
  }
+
+ qreal TspEvoSolverViewModel::getkfactor()
+ {
+        return m_param_SPEA_K;
+ }
+ qreal TspEvoSolverViewModel::getarchSize()
+ {
+        return m_param_SPEA_Arch;
+ }
+
+
+ qreal TspEvoSolverViewModel::getCrossoverProb()
+ {
+        return m_crossoverProb;
+ }
+
 
  qreal TspEvoSolverViewModel::getfitnessRangeStart()
  {
@@ -395,7 +389,7 @@ void TspEvoSolverViewModel::setcostsRangeEnd(qreal a)
  int TspEvoSolverViewModel::rowCount(const QModelIndex &parent) const
  {
      Q_UNUSED(parent)
-     return lengthHistory.count();
+     return lengthHistory.size();
  }
 
  int TspEvoSolverViewModel::columnCount(const QModelIndex &parent) const
@@ -418,7 +412,7 @@ void TspEvoSolverViewModel::UpdateDataRange()
 
     int pinc =0;
     for(pinc =0; pinc < lengthHistory.size(); pinc++){
-         QVector<qreal> val = lengthHistory[pinc];
+         std::vector<qreal> val = lengthHistory[pinc];
          qreal len = val[1];
          if( (int)m_fitnessRangeEnd==0){
             m_fitnessRangeEnd = len;
@@ -444,7 +438,7 @@ void TspEvoSolverViewModel::UpdateDataRange()
 
 
     for(pinc =0; pinc < costHistory.size(); pinc++){
-         QVector<qreal> val = costHistory[pinc];
+         std::vector<qreal> val = costHistory[pinc];
          qreal len = val[1];
          if( m_costsRangeEnd==0 ){
             m_costsRangeEnd = len;

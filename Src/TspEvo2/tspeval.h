@@ -1,9 +1,16 @@
 #ifndef TSPEVAL_H
 #define TSPEVAL_H
 
-#include "tspbaseextlib.h"
-#include "MOEO/tspdroute.h"
 
+#include <eoEasyEA.h>
+#include <eoGenContinue.h>
+#include <eoStochTournamentSelect.h>
+#include <eoSGATransform.h>
+#include <eoSelectNumber.h>
+
+#include <moeo>
+#include "MOEO/tspobjectivevector.h"
+#include "MOEO/tspdroute.h"
 
 /**
  * abstract class of ZDT evaluation fonctions

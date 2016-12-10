@@ -1,8 +1,18 @@
 #ifndef TSPPATHGRAPHVIEW_H
 #define TSPPATHGRAPHVIEW_H
 
-#include "tspbaseextlib.h"
-#include "MOEO/tspdroute.h"
+#include <QPainter>
+#include <QtQuick/QQuickPaintedItem>
+#include <QColor>
+
+#include <eoEasyEA.h>
+#include <eoGenContinue.h>
+#include <eoStochTournamentSelect.h>
+#include <eoSGATransform.h>
+#include <eoSelectNumber.h>
+#include <moeo>
+
+#include "tspdataservice.h"
 
 class TspPathGraphView : public QQuickPaintedItem
 {

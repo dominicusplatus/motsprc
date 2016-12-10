@@ -39,7 +39,7 @@
 #ifndef ZDTOBJECTIVEVECTOR_H_
 #define ZDTOBJECTIVEVECTOR_H_
 
-#include "tspsolver.h"
+#include <moeo>
 
 /** define ZDT Objective vector as a vector of double*/
 typedef moeoRealObjectiveVector<moeoObjectiveVectorTraits> ZDTObjectiveVector;

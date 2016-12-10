@@ -1,7 +1,26 @@
 #ifndef TSPDATASERVICE_H
 #define TSPDATASERVICE_H
 
-#include "tspbaseextlib.h"
+#include <QObject>
+
+#include <QObject>
+#include "QVector"
+#include <QtCore/QAbstractTableModel>
+#include <QtCore/QHash>
+#include <QtCore/QRect>
+
+#include <eoEasyEA.h>
+#include <eoGenContinue.h>
+#include <eoStochTournamentSelect.h>
+#include <eoSGATransform.h>
+#include <eoSelectNumber.h>
+#include <moeo>
+#include <utils/checkpointing>
+#include <eoOp.h> // for eoInit
+#include <eoPersistent.h>
+#include <eoInit.h>
+#include <utils/rnd_generators.h>  // for shuffle method
+
 #include "MOEO/tspdroute.h"
 
 extern std::vector<std::vector <TspDRoute*>> TspRouteHistory;
@@ -15,7 +34,13 @@ extern  qreal maximumCostPath;
 extern  qreal minimumCostLength;
 extern  qreal maximumCostLength;
 
-  void DesignateParetoFrontSolutionsForPopulation(int limit,eoPop <TspDRoute> pop);
+extern std::vector<std::vector<qreal>> lengthHistory;
+extern std::vector<std::vector<qreal>> costHistory;
+
+extern int tspGenerations;
+extern int tspPopSize;
+
+void DesignateParetoFrontSolutionsForPopulation(int limit,eoPop <TspDRoute> pop);
 
 class TspDataService    //: public QObject
 {

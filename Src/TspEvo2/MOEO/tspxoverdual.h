@@ -1,8 +1,13 @@
 #ifndef TSPXOVERDUAL_H
 #define TSPXOVERDUAL_H
 
-#include "tspbaseextlib.h"
+#include <assert.h>
+
+#include <utils/eoRNG.h>
+#include <eoOp.h>
 #include "MOEO/tspdroute.h"
+
+/** Partial Mapped Crossover */
 
 template <class T> void mix(std::vector<T> &__vect)
 {
@@ -12,7 +17,6 @@ template <class T> void mix(std::vector<T> &__vect)
 
 }
 
-/** Partial Mapped Crossover */
 class TspDualXover : public eoQuadOp <TspDRoute> {
 
 public :

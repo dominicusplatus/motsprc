@@ -13,8 +13,6 @@
 #include "tspdualcrossover.h"
 #include "tspdrouteinit.h"
 
-#include "graph.h"
-
 /*
  * This function creates an eoEvalFuncCounter<eoFlowShop> that can later be used to evaluate an individual.
  * @param eoParser& _parser  to get user parameters

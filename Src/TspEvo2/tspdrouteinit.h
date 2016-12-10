@@ -1,7 +1,8 @@
 #ifndef TSPDROUTEINIT_H
 #define TSPDROUTEINIT_H
 
-#include "tspbaseextlib.h"
+#include <eoInit.h>
+#include "MOEO/tspobjectivevector.h"
 #include "MOEO/tspdroute.h"
 
 class TspDRouteInit : public eoInit <TspDRoute> {

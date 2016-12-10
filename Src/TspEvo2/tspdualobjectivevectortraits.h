@@ -1,7 +1,8 @@
 #ifndef TSPDUALOBJECTIVEVECTORTRAITS_H
 #define TSPDUALOBJECTIVEVECTORTRAITS_H
 
-#include "tspbaseextlib.h"
+
+#include <core/moeoObjectiveVectorTraits.h>
 
 /**
  * Definition of the objective vector traits for multi-objective flow-shop problems

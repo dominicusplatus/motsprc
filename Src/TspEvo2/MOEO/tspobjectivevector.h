@@ -1,8 +1,9 @@
 #ifndef TSPOBJECTIVEVECTOR_H
 #define TSPOBJECTIVEVECTOR_H
 
-#include "tspbaseextlib.h"
-#include "tspdualobjectivevectortraits.h"
+#include <moeo>
+#include <core/moeoRealObjectiveVector.h>
+#include <tspdualobjectivevectortraits.h>
 
 typedef moeoRealObjectiveVector<TspDualObjectiveVectorTraits> TSPObjectiveVector;
 

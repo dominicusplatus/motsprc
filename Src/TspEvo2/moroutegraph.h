@@ -2,7 +2,13 @@
 #define MOROUTEGRAPH_H
 
 
-#include "tspbaseextlib.h"
+#include <vector>
+#include <utility>
+
+
+#include <fstream>
+#include <iostream>
+#include <math.h>
 
 namespace MORouteGraph {
 

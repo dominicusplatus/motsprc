@@ -1,8 +1,9 @@
 #ifndef TSPDUALCROSSOVER_H
 #define TSPDUALCROSSOVER_H
 
-#include "tspbaseextlib.h"
-#include "MOEO/tspdroute.h"
+#include <eoOp.h>
+#include <MOEO/tspdroute.h>
+
 /**
  * Quadratic crossover operator for flow-shop (modify the both genotypes)
  */

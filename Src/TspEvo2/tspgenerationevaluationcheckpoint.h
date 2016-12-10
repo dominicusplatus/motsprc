@@ -1,7 +1,18 @@
 #ifndef TSPGENERATIONEVALUATIONCHECKPOINT_H
 #define TSPGENERATIONEVALUATIONCHECKPOINT_H
-#include "tspbaseextlib.h"
+
+#include "EO.h"
+#include <string>
+#include <iostream>
+
+#include <utils/eoMonitor.h>
+#include <utils/eoLogger.h>
+#include "eoContinue.h"
+#include <eoObject.h>
+
 #include "MOEO/tspdroute.h"
+#include "tspgenerationprogressmonitor.h"
+#include "tspdataservice.h"
 
 class TspGenerationEvaluationCheckpoint: public eoContinue<TspDRoute>
 {

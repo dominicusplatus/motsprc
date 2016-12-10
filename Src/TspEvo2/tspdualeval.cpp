@@ -23,6 +23,9 @@ double TspDualEval::length(const TspDRoute & route)
         double distance = MORouteGraph::distance(startVertex,endVertex);
         totalDistance += distance;
     }
+    //add the last-first distance - TSP ends at start
+    totalDistance += MORouteGraph::distance(route[0],route[route.size()-1]);
+
     return totalDistance;
 }
 

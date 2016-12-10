@@ -163,9 +163,9 @@ void TspPathGraphView::paint(QPainter *painter)
 
               //store first point
            std::pair <double, double> coordsFrom = MORouteGraph::getCityCoords(rt[0]);
-           prev.setX(coordsFrom.first*3);
-           prev.setY(coordsFrom.second*3);
-           painter->drawText( to, QString::number(0) );
+           prev.setX(coordsFrom.first);
+           prev.setY(coordsFrom.second);
+           painter->drawText( prev, QString::number(0) );
 
            int sumLen = 0;
 
@@ -185,6 +185,11 @@ void TspPathGraphView::paint(QPainter *painter)
 
                prev = to;
          }
+
+           //last to first
+           to.setX(coordsFrom.first);
+           to.setY(coordsFrom.second);
+           painter->drawLine(prev, to);
 
            TspDualEval eval;
            double len1 = eval.length(rt);  //MORouteGraph::length(rt);

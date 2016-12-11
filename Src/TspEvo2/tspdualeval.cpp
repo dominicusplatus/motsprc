@@ -25,10 +25,8 @@ double TspDualEval::length(const TspDRoute & route)
     }
     //add the last-first distance - TSP ends at start
     totalDistance += MORouteGraph::distance(route[0],route[route.size()-1]);
-
     return totalDistance;
 }
-
 
 double TspDualEval::cost(const TspDRoute & route)
 {
@@ -42,6 +40,8 @@ double TspDualEval::cost(const TspDRoute & route)
         double cost = MORouteGraph::cost(startVertex,endVertex);
         totalCost += cost;
     }
+    //add the last-first cost - TSP ends at start
+    totalCost += MORouteGraph::cost(route[0],route[route.size()-1]);
     return totalCost;
 }
 

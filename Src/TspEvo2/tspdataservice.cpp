@@ -4,13 +4,16 @@
 
 using namespace std;
 
- std::vector<std::vector <TspDRoute*>> TspRouteHistory;
- std::vector<eoPop <TspDRoute>> TspRoutePopulationsHistory;
+  std::vector<std::vector <TspDRoute*>> TspRouteHistory;
+  std::vector<eoPop <TspDRoute>> TspRoutePopulationsHistory;
 
   std::vector<std::vector<qreal>> lengthHistory;
   std::vector<std::vector<qreal>> costHistory;
+
   eoPop <TspDRoute> TspRoutes;
   QList<TspDRoute> BestTspRoutes;
+  QList<TspDRoute> TspParetoOptimalGenerationRoutes;
+
     qreal minimumCostPath;
     qreal maximumCostPath;
 

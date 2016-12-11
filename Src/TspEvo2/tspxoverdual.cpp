@@ -31,9 +31,8 @@ void TspDualXover :: repair (TspDRoute & __route, unsigned __cut1, unsigned __cu
       }
 }
 
-
-bool TspDualXover :: operator () (TspDRoute & __route1, TspDRoute & __route2) {
-
+bool TspDualXover :: operator () (TspDRoute & __route1, TspDRoute & __route2)
+{
   unsigned cut1 = rng.random (__route1.size ()), cut2 = rng.random (__route2.size ()) ;
 
   if (cut2 < cut1)
@@ -46,10 +45,6 @@ bool TspDualXover :: operator () (TspDRoute & __route1, TspDRoute & __route2) {
   // Outside the cuts
   repair (__route1, cut1, cut2) ;
   repair (__route2, cut1, cut2) ;
-
-  // Debug
-  //assert (valid (__route1)) ;
-  //assert (valid (__route2)) ;
 
   __route1.invalidate () ;
   __route2.invalidate () ;

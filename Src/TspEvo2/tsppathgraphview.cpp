@@ -85,28 +85,6 @@ void TspPathGraphView::paint(QPainter *painter)
 
            int startX = 0;
            int startY = 0;
-
-           /*
-            if(m_index == 0)
-            {
-
-            }
-            else if (m_index == 1)
-            {
-                startX = frameWidth/2;
-                startY = 0;
-            }
-            else if (m_index == 2)
-            {
-                startX = 0;
-                startY = frameHeight/2;
-            }
-            else if (m_index == 3)
-            {
-                startX = frameWidth/2;
-                startY = frameHeight/2;
-            }
-*/
            //draw graph
            QPoint from, to, prev;
            painter->setPen(GraphPen);
@@ -129,7 +107,7 @@ void TspPathGraphView::paint(QPainter *painter)
                painter->drawText( to, QString::number(vertNo) );
                painter->drawLine(prev, to);
                prev = to;
-         }
+           }
 
            //last to first
            to.setX(startX+coordsFrom.first);
@@ -137,7 +115,7 @@ void TspPathGraphView::paint(QPainter *painter)
            painter->drawLine(prev, to);
 
            TspDualEval eval;
-           double len1 = eval.length(rt);  //MORouteGraph::length(rt);
+           double len1 = eval.length(rt);
            m_length = len1;
 
            QPoint resPt;

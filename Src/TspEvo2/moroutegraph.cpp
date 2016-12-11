@@ -111,8 +111,7 @@ namespace MORouteGraph {
       for (unsigned i = 0 ; i < num_vert ; i ++)
     {
         std::pair <double, double>  vectCoordTmp;
-        f >> vectCoord [i].first >> vectCoord [i].second;   //>> vectCoordTmp.first;
-        //vertcost[i] = vectCoordTmp.first;
+        f >> vectCoord [i].first >> vectCoord [i].second;
     }
       f.close () ;
 

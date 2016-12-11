@@ -30,19 +30,20 @@ void TspEvoSolverViewModel::Solve()
 
 }
 
-
-
 int TspEvoSolverViewModel::GetResult()
 {
   return 0;
 }
 
-
-
-
-
 TspDRoute TspEvoSolverViewModel::GetPopulationBestRoute(eoPop<TspDRoute> pop)
 {
+    //eoPop<TspDRoute> ppop = TspRoutePopulationsHistory[popinc];
+
+    moeoUnboundedArchive<TspDRoute> finalArchive;
+    finalArchive(pop);
+    return finalArchive[0];
+
+
     int result = 0;
      TspDRoute best;
 
@@ -68,6 +69,7 @@ TspDRoute TspEvoSolverViewModel::GetPopulationBestRoute(eoPop<TspDRoute> pop)
 
         return  best;
 }
+
 
 
 void TspEvoSolverViewModel::SolveMOEO()
@@ -103,28 +105,19 @@ void TspEvoSolverViewModel::SolveMOEO()
     }
 
         eoState state;                // to keep all things allocated
-
-        /*
-        double P_CROSS = 1.0;
-        double EXT_P_MUT = 1.0;
-        double INT_P_MUT = 0.083;
-        unsigned int VEC_SIZE = (unsigned int)(30);
-        unsigned int NB_OBJ= (unsigned int)(2);
-        unsigned int ARC_SIZE =  100;
-        unsigned int K = (10);
-    */
-
         TspRoutePopulationsHistory.clear();
         TspRouteHistory.clear();
         BestTspRoutes.clear();
 
-
         /*** the representation-dependent things ***/
-         std::vector <bool> bObjectives(2);
+        /*
+        std::vector <bool> bObjectives(2);
          for (unsigned int i=0; i<2 ; i++)
              bObjectives[i]=true;
 
          moeoObjectiveVectorTraits::setup(2,bObjectives);
+         */
+
          eoEvalFunc <TspDRoute> * eval;
          eval = new TspDualEval;
 
@@ -142,7 +135,6 @@ void TspEvoSolverViewModel::SolveMOEO()
 
          eoSGAGenOp < TspDRoute > op(xover, m_crossoverProb, mutation, m_mutationProb);
          moeoAdditiveEpsilonBinaryMetric < TSPObjectiveVector > metric;
-
 
          TspDRouteInit drouteInit ; // Sol. Random Init.
          eoPop <TspDRoute> pop(tspPopSize, drouteInit) ; // Population
@@ -173,38 +165,43 @@ void TspEvoSolverViewModel::SolveMOEO()
          else{
              return;
          }
-/*
-         else if (solverAlgorithm == SEEA ){
-             moeoSPEA2Archive<TspDRoute> arch(ARC_SIZE);
-             moeoSEEA<TspDRoute> algo(*checkpoint, evalFunc ,op, metric) ;
-              do_run(algo, pop);
-         }
-  */
 
-         moeoUnboundedArchive<TspDRoute> finalArchive;
-         finalArchive(pop);
+
+         //now designate pareto optimal solutions for each archive
+         int popinc = 0;
+         TspParetoOptimalGenerationRoutes.clear();
+         moeoUnboundedArchive<TspDRoute> fullArchive;
+         //fullArchive.resize(4); //4 best solutions required to display
+         for(popinc =0; popinc<tspGenerations;popinc++){
+             eoPop<TspDRoute> ppop = TspRoutePopulationsHistory[popinc];
+             moeoUnboundedArchive<TspDRoute> finalArchive;
+             finalArchive(pop);
+             fullArchive(pop);
+             TspParetoOptimalGenerationRoutes.push_back(finalArchive[0]);
+         }
+
+
+
          TspRoutes = pop;
          //now update the UI
           beginResetModel();
-         lengthHistory.clear();
 
        m_rowCount = tspGenerations;
-       ProcessPopulationHistory();
-       endResetModel();
 
+       ProcessPopulationHistory();
+
+       endResetModel();
 
        //COMPARE
 /*
-        eoPop<TspDRoute> bestPop;
-        moeoParetoObjectiveVectorComparator<TSPObjectiveVector> objcomp;
-        TspDualObjectiveVectorComparator<TspDRoute> comparator;
-        comparator(bestPop,pop,objcomp);
+                eoPop<TspDRoute> bestPop;
+                moeoParetoObjectiveVectorComparator<TSPObjectiveVector> objcomp;
+                TspDualObjectiveVectorComparator<TspDRoute> comparator;
+                comparator(bestPop,pop,objcomp);
 */
 
-
-       //designate best solutions for last gen
-       DesignateParetoFrontSolutionsForPopulation(4, TspRoutePopulationsHistory[TspRoutePopulationsHistory.size()-1]);
-
+        //designate best solutions for last gen
+        DesignateParetoFrontSolutionsForPopulation(4, TspRoutePopulationsHistory[TspRoutePopulationsHistory.size()-1]);
 
          emit populationChanged(TspRoutes);
          QModelIndex indexA = this->index(0, 0, QModelIndex());
@@ -213,7 +210,6 @@ void TspEvoSolverViewModel::SolveMOEO()
          UpdateDataRange();
          emit dataChanged(indexA, indexC);
 
-
 }
 
 void  TspEvoSolverViewModel::ProcessPopulationHistory()
@@ -221,8 +217,9 @@ void  TspEvoSolverViewModel::ProcessPopulationHistory()
      moeoRouteLengthBestHistory.clear();
      moeoFitnessAverageHistory.clear();
      moeoRouteCostBestHistory.clear();
-    //    QList<qreal> moeoRouteLengthBestHistory;
-    //     QList<qreal> moeoRouteCostBestHistory;
+
+     lengthHistory.clear();
+     costHistory.clear();
      if(TspRoutePopulationsHistory.size() < 1){
          return;
      }
@@ -252,7 +249,6 @@ void  TspEvoSolverViewModel::ProcessPopulationHistory()
         costHistory.push_back(val2);
 
     }
-
 }
 
 
@@ -402,9 +398,6 @@ void TspEvoSolverViewModel::setcostsRangeEnd(qreal a)
      return m_columnCount;
  }
 
-
-
-
 void TspEvoSolverViewModel::UpdateDataRange()
 {
 
@@ -413,6 +406,9 @@ void TspEvoSolverViewModel::UpdateDataRange()
 
     m_costsRangeEnd=0;
     m_costsRangeStart = 0;
+
+    maximumCostPath = 0;
+    minimumCostLength = 0;
 
     int pinc =0;
     for(pinc =0; pinc < lengthHistory.size(); pinc++){
@@ -487,8 +483,6 @@ void TspEvoSolverViewModel::UpdateDataRange()
 
  QVariant TspEvoSolverViewModel::data(const QModelIndex &index, int role) const
  {
-     //    QList<qreal> moeoFitnessBestHistory;
-    //   QList<qreal> moeoFitnessAverageHistory;
      if(index.column() < 2){
          if(index.row() > lengthHistory.size()-1){
              return  QVariant();

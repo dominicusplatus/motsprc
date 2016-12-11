@@ -61,7 +61,6 @@ INPUT(
 ./release\moeoObjectiveVectorTraits.o
 ./release\tspdualsolverresultsurfaceviewmodel.o
 ./release\qsurfacemodelresultvertextsp.o
-./release\qsurfaceparetotspresultsviewmodel.o
 ./release\qrc_qml.o
 ./release\moc_tspevosolverviewmodel.o
 ./release\moc_tspevofitnesshistorydatamodel.o

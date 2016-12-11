@@ -1,6 +1,6 @@
 #include "qsurfacemodelresultvertextsp.h"
 
-QSurfaceModelResultVertexTsp::QSurfaceModelResultVertexTsp(QObject *parent )
-{
+QSurfaceModelResultVertexTsp::QSurfaceModelResultVertexTsp(QObject *parent)
+ {
 
-}
+ }

@@ -77,7 +77,7 @@ void TspEvoSolverViewModel::SolveMOEO()
     QString problemPath;
     QString pathRoot = QCoreApplication::applicationDirPath();
     if(dataSet == ALI535){
-            MORouteGraph :: load (  (pathRoot+ QString("benchs/ali535.tsp")).toStdString().c_str() ) ; // Instance
+            MORouteGraph :: load (  (pathRoot+ QString("/benchs/ali535.tsp")).toStdString().c_str() ) ; // Instance
     }
     else if (dataSet == ELI101)
     {
@@ -108,15 +108,6 @@ void TspEvoSolverViewModel::SolveMOEO()
         TspRoutePopulationsHistory.clear();
         TspRouteHistory.clear();
         BestTspRoutes.clear();
-
-        /*** the representation-dependent things ***/
-        /*
-        std::vector <bool> bObjectives(2);
-         for (unsigned int i=0; i<2 ; i++)
-             bObjectives[i]=true;
-
-         moeoObjectiveVectorTraits::setup(2,bObjectives);
-         */
 
          eoEvalFunc <TspDRoute> * eval;
          eval = new TspDualEval;
@@ -170,14 +161,23 @@ void TspEvoSolverViewModel::SolveMOEO()
          //now designate pareto optimal solutions for each archive
          int popinc = 0;
          TspParetoOptimalGenerationRoutes.clear();
-         moeoUnboundedArchive<TspDRoute> fullArchive;
+         moeoUnboundedArchive   <TspDRoute> fullArchive; //(4,true);
          //fullArchive.resize(4); //4 best solutions required to display
          for(popinc =0; popinc<tspGenerations;popinc++){
              eoPop<TspDRoute> ppop = TspRoutePopulationsHistory[popinc];
              moeoUnboundedArchive<TspDRoute> finalArchive;
-             finalArchive(pop);
-             fullArchive(pop);
+             finalArchive(ppop);
+             fullArchive(ppop);
              TspParetoOptimalGenerationRoutes.push_back(finalArchive[0]);
+
+             /*
+             for(unsigned rinc =0; rinc<ppop.size();rinc++){
+                 if(fullArchive.size()-1>rinc){
+                     TspParetoOptimalGenerationPopulations[popinc][rinc] = fullArchive[rinc];
+                 }
+             }
+             */
+            // TspParetoOptimalGenerationPopulations.push_back(fullArchive);
          }
 
 
@@ -191,14 +191,6 @@ void TspEvoSolverViewModel::SolveMOEO()
        ProcessPopulationHistory();
 
        endResetModel();
-
-       //COMPARE
-/*
-                eoPop<TspDRoute> bestPop;
-                moeoParetoObjectiveVectorComparator<TSPObjectiveVector> objcomp;
-                TspDualObjectiveVectorComparator<TspDRoute> comparator;
-                comparator(bestPop,pop,objcomp);
-*/
 
         //designate best solutions for last gen
         DesignateParetoFrontSolutionsForPopulation(4, TspRoutePopulationsHistory[TspRoutePopulationsHistory.size()-1]);

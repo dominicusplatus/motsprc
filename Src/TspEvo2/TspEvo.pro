@@ -63,7 +63,8 @@ SOURCES += main.cpp \
     paradiseo/eo/src/eoSIGContinue.cpp \
     paradiseo/moeo/src/core/moeoObjectiveVectorTraits.cpp \
     tspdualsolverresultsurfaceviewmodel.cpp \
-    qsurfacemodelresultvertextsp.cpp
+    qsurfacemodelresultvertextsp.cpp \
+    tspdualsolverresultsparetosurfaceviewmodel.cpp
 
 RESOURCES += qml.qrc
 
@@ -661,7 +662,8 @@ HEADERS +=  tspevosolverviewmodel.h \
     paradiseo/moeo/src/utils/moeoObjectiveVectorNormalizer.h \
     paradiseo/moeo/src/utils/moeoObjVecStat.h \
     paradiseo/moeo/src/moeo \
-    qsurfacemodelresultvertextsp.h
+    qsurfacemodelresultvertextsp.h \
+    tspdualsolverresultsparetosurfaceviewmodel.h
 
 INCLUDEPATH +=  "$$PWD\paradiseo\include" \
                 "$$PWD\paradiseo\include\eo" \

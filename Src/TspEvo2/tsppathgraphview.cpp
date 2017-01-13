@@ -77,7 +77,9 @@ void TspPathGraphView::paint(QPainter *painter)
            if(BestTspRoutes.size() < 1){
                return;
            }
-           TspDRoute rt = BestTspRoutes[m_index];
+
+          // TspDRoute rt = TspParetoOptimalGenerationPopulations[TspParetoOptimalGenerationPopulations.size()-1][m_index];
+            TspDRoute rt  = BestTspRoutes[m_index];
 
            if(rt.size() < verts){
                return;
@@ -97,7 +99,6 @@ void TspPathGraphView::paint(QPainter *painter)
            painter->drawText( prev, QString::number(0) );
 
            int sumLen = 0;
-
            for (vertNo = 1; vertNo < verts; vertNo++)
            {
                to = QPoint();

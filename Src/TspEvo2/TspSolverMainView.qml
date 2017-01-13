@@ -8,23 +8,17 @@ import QtQuick.Controls.Styles 1.4
 import QtQuick.Controls 1.4
 import QtQuick.Controls 2.0
 import QtDataVisualization 1.0
+import QtQuick.Window 2.2
 import QtCharts 2.1
 import com.tspevo.data 1.0
 
 Rectangle {
     id: mainView
-    width: 800
-    height: 600
+    width: parent.width
+    height : parent.height
 
     property TspEvoSolverViewModel solverModel : TspEvoSolverViewModel{}
-
     property TspDualSolverResultSurfaceViewModel surfaceModel : TspDualSolverResultSurfaceViewModel{}
-
-
-    Data {
-        id: data
-    }
-
 
     GridLayout {
         id: gridLayout
@@ -33,6 +27,7 @@ Rectangle {
         width: parent.width
         height : parent.height
 
+        //Result graphs 4 best
         Rectangle {
             width: parent.width *0.5
             height : parent.height *0.5
@@ -118,6 +113,7 @@ Rectangle {
             }
         }
 
+        //Population fitness history pareto
         Rectangle {
             width: parent.width *0.5
             height : parent.height *0.5
@@ -179,13 +175,12 @@ Rectangle {
 
         }
 
+        //Generations 3d view
         Rectangle {
             width: parent.width *0.5
             height : parent.height *0.5
             border.color: scatterGraph.theme.gridLineColor
             border.width: 2
-
-
 
             Item {
                 id: dataView
@@ -219,11 +214,10 @@ Rectangle {
                     axisY.segmentCount: 2
                     axisY.subSegmentCount: 2
                     axisY.labelFormat: "%.2f"
-                    //! [6]
-                    //! [5]
+
                     Scatter3DSeries {
                         id: scatterSeries
-                         mesh: Abstract3DSeries.MeshCube
+                         mesh: Abstract3DSeries.MeshCone
                         itemLabelFormat: "Series 1: X:@xLabel Y:@yLabel Z:@zLabel"
 
                         ItemModelScatterDataProxy {
@@ -232,26 +226,29 @@ Rectangle {
                             yPosRole: "length"
                             zPosRole: "generation"
                         }
-                        //! [11]
+
+                        //surfaceParetoModel
                     }
                 }
 
         }
         }
 
-
-
+        //Data input ctrl
         Rectangle {
             width: parent.width *0.5
             height : parent.height *0.5
 
             GridLayout {
+                width: parent.width
+                height : parent.height
+
                 anchors.right: parent.right
                 anchors.left: parent.left
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
                 columns: 2
-
+                rows : 8
 
                 Label {
                     text: "Algorithm"
@@ -304,6 +301,7 @@ Rectangle {
 
 
 
+
                 Label {
                     text: "Population size"
                 }
@@ -339,20 +337,14 @@ Rectangle {
                 Label {
                     text: "Mutation probability %"
                 }
-/*
-                TextInput{
-                    id: textInput1;
-                    text: "1"
-                }
-*/
-
                 SpinBox {
                     id: spinboxMutProb
                     value : solverModel.mutationProb
                     from : 0
                     to : 100
-                    stepSize :1
+                    stepSize : 5
                 }
+
 
 
                 Label {
@@ -364,11 +356,44 @@ Rectangle {
                     value : solverModel.crossoverProb
                     from : 0
                     to : 100
-                    stepSize : 1
+                    stepSize : 5
+                }
+
+
+                Label {
+                    text: "Start"
+                }
+
+                Button {
+                    width : parent.width * 0.6
+                    height : parent.height * 0.2
+                    text: "Solve"
+                    onClicked: {
+                        solverModel.SolveMOEO();
+                      //  solverModel.GetResult();
+                        graphView1.setIndex(0);
+                        graphView1.update();
+
+                        graphView2.setIndex(1);
+                        graphView2.update();
+
+                        graphView3.setIndex(2);
+                        graphView3.update();
+
+                        graphView4.setIndex(3);
+                        graphView4.update();
+
+                        surfaceModel.updateData();
+                       // TspDualSolverResultSurfaceViewModel.endResetModel();
+                    }
+
                 }
 
 
 
+
+
+                /*
                 Label {
                     text: "Archive size (SPEA)"
                 }
@@ -393,36 +418,7 @@ Rectangle {
                     to : 100
                     stepSize : 1
                 }
-
-
-
-                NewButton {
-                   // Layout.width: parent.width / 2
-                    width : parent.width * 0.6
-                    height : parent.height * 0.2
-                    //Layout.fillHeight: true
-                   // Layout.fillWidth: true
-                    text: "Solve"
-                    onClicked: {
-                        solverModel.SolveMOEO();
-                      //  solverModel.GetResult();
-                        graphView1.setIndex(0);
-                        graphView1.update();
-
-                        graphView2.setIndex(1);
-                        graphView2.update();
-
-                        graphView3.setIndex(2);
-                        graphView3.update();
-
-                        graphView4.setIndex(3);
-                        graphView4.update();
-
-                        surfaceModel.updateData();
-                       // TspDualSolverResultSurfaceViewModel.endResetModel();
-                    }
-
-                }
+                */
 
             }
 
@@ -430,32 +426,6 @@ Rectangle {
     }
     //! [0]
 
-    function clearSelections() {
-        barGraph.clearSelection()
-        scatterGraph.clearSelection()
-        surfaceGraph.clearSelection()
-    }
 
-    function resetCameras() {
-        surfaceGraph.scene.activeCamera.cameraPreset = Camera3D.CameraPresetIsometricLeftHigh
-        scatterGraph.scene.activeCamera.cameraPreset = Camera3D.CameraPresetIsometricLeftHigh
-        barGraph.scene.activeCamera.cameraPreset = Camera3D.CameraPresetIsometricLeftHigh
-        surfaceGraph.scene.activeCamera.zoomLevel = 100.0
-        scatterGraph.scene.activeCamera.zoomLevel = 100.0
-        barGraph.scene.activeCamera.zoomLevel = 100.0
-    }
-
-    function toggleMeshStyle() {
-        if (barGraph.seriesList[0].meshSmooth === true) {
-            barGraph.seriesList[0].meshSmooth = false
-            if (surfaceGraph.seriesList[0].flatShadingSupported)
-                surfaceGraph.seriesList[0].flatShadingEnabled = true
-            scatterGraph.seriesList[0].meshSmooth = false
-        } else {
-            barGraph.seriesList[0].meshSmooth = true
-            surfaceGraph.seriesList[0].flatShadingEnabled = false
-            scatterGraph.seriesList[0].meshSmooth = true
-        }
-    }
 }
 

@@ -13,6 +13,7 @@ using namespace std;
   eoPop <TspDRoute> TspRoutes;
   QList<TspDRoute> BestTspRoutes;
   QList<TspDRoute> TspParetoOptimalGenerationRoutes;
+  std::vector<std::vector <TspDRoute> >  TspParetoOptimalGenerationPopulations;
 
     qreal minimumCostPath;
     qreal maximumCostPath;

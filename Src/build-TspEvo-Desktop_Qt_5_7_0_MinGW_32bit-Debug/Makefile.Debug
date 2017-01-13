@@ -104,12 +104,14 @@ SOURCES       = ..\TspEvo2\main.cpp \
 		..\TspEvo2\paradiseo\eo\src\eoSIGContinue.cpp \
 		..\TspEvo2\paradiseo\moeo\src\core\moeoObjectiveVectorTraits.cpp \
 		..\TspEvo2\tspdualsolverresultsurfaceviewmodel.cpp \
-		..\TspEvo2\qsurfacemodelresultvertextsp.cpp debug\qrc_qml.cpp \
+		..\TspEvo2\qsurfacemodelresultvertextsp.cpp \
+		..\TspEvo2\tspdualsolverresultsparetosurfaceviewmodel.cpp debug\qrc_qml.cpp \
 		debug\moc_tspevosolverviewmodel.cpp \
 		debug\moc_tspevofitnesshistorydatamodel.cpp \
 		debug\moc_tsppathgraphview.cpp \
 		debug\moc_tspdualsolverresultsurfaceviewmodel.cpp \
-		debug\moc_qsurfacemodelresultvertextsp.cpp
+		debug\moc_qsurfacemodelresultvertextsp.cpp \
+		debug\moc_tspdualsolverresultsparetosurfaceviewmodel.cpp
 OBJECTS       = debug/main.o \
 		debug/tspevosolverviewmodel.o \
 		debug/tspevofitnesshistorydatamodel.o \
@@ -172,12 +174,14 @@ OBJECTS       = debug/main.o \
 		debug/moeoObjectiveVectorTraits.o \
 		debug/tspdualsolverresultsurfaceviewmodel.o \
 		debug/qsurfacemodelresultvertextsp.o \
+		debug/tspdualsolverresultsparetosurfaceviewmodel.o \
 		debug/qrc_qml.o \
 		debug/moc_tspevosolverviewmodel.o \
 		debug/moc_tspevofitnesshistorydatamodel.o \
 		debug/moc_tsppathgraphview.o \
 		debug/moc_tspdualsolverresultsurfaceviewmodel.o \
-		debug/moc_qsurfacemodelresultvertextsp.o
+		debug/moc_qsurfacemodelresultvertextsp.o \
+		debug/moc_tspdualsolverresultsparetosurfaceviewmodel.o
 
 DIST          =  tspevosolverviewmodel.h \
 		..\TspEvo2\Model\tspevosolverviewmodel.h \
@@ -765,7 +769,8 @@ DIST          =  tspevosolverviewmodel.h \
 		..\TspEvo2\paradiseo\moeo\src\utils\moeoObjectiveVectorNormalizer.h \
 		..\TspEvo2\paradiseo\moeo\src\utils\moeoObjVecStat.h \
 		..\TspEvo2\paradiseo\moeo\src\moeo \
-		..\TspEvo2\qsurfacemodelresultvertextsp.h ..\TspEvo2\main.cpp \
+		..\TspEvo2\qsurfacemodelresultvertextsp.h \
+		..\TspEvo2\tspdualsolverresultsparetosurfaceviewmodel.h ..\TspEvo2\main.cpp \
 		..\TspEvo2\Model\tspevosolverviewmodel.cpp \
 		..\TspEvo2\Model\tspevofitnesshistorydatamodel.cpp \
 		..\TspEvo2\tsppathgraphview.cpp \
@@ -826,7 +831,8 @@ DIST          =  tspevosolverviewmodel.h \
 		..\TspEvo2\paradiseo\eo\src\eoSIGContinue.cpp \
 		..\TspEvo2\paradiseo\moeo\src\core\moeoObjectiveVectorTraits.cpp \
 		..\TspEvo2\tspdualsolverresultsurfaceviewmodel.cpp \
-		..\TspEvo2\qsurfacemodelresultvertextsp.cpp
+		..\TspEvo2\qsurfacemodelresultvertextsp.cpp \
+		..\TspEvo2\tspdualsolverresultsparetosurfaceviewmodel.cpp
 QMAKE_TARGET  = TspEvo
 DESTDIR        = debug\ #avoid trailing-slash linebreak
 TARGET         = TspEvo.exe
@@ -849,7 +855,7 @@ dist:
 	$(ZIP) TspEvo.zip $(SOURCES) $(DIST) ..\TspEvo2\TspEvo.pro H:\QT\5.7\mingw53_32\mkspecs\features\spec_pre.prf H:\QT\5.7\mingw53_32\mkspecs\qdevice.pri H:\QT\5.7\mingw53_32\mkspecs\features\device_config.prf H:\QT\5.7\mingw53_32\mkspecs\common\angle.conf H:\QT\5.7\mingw53_32\mkspecs\qconfig.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_3dcore.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_3dcore_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_3dextras.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_3dextras_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_3dinput.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_3dinput_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_3dlogic.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_3dlogic_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_3dquick.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_3dquick_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_3dquickextras.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_3dquickextras_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_3dquickinput.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_3dquickinput_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_3dquickrender.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_3dquickrender_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_3drender.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_3drender_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_axbase.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_axbase_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_axcontainer.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_axcontainer_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_axserver.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_axserver_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_bluetooth.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_bluetooth_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_bootstrap_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_charts.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_charts_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_clucene_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_concurrent.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_concurrent_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_core.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_core_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_datavisualization.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_datavisualization_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_dbus.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_dbus_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_designer.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_designer_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_designercomponents_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_gamepad.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_gamepad_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_gui.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_gui_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_help.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_help_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_location.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_location_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_multimedia.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_multimedia_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_network.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_network_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_nfc.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_nfc_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_opengl.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_opengl_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_openglextensions.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_openglextensions_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_packetprotocol_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_platformsupport_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_positioning.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_positioning_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_printsupport.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_printsupport_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_purchasing.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_purchasing_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_qml.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_qml_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_qmldebug_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_qmldevtools_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_qmltest.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_qmltest_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_quick.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_quick_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_quickparticles_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_quickwidgets.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_quickwidgets_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_script.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_script_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_scripttools.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_scripttools_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_scxml.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_scxml_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_sensors.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_sensors_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_serialbus.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_serialbus_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_serialport.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_serialport_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_sql.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_sql_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_svg.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_svg_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_testlib.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_testlib_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_uiplugin.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_uitools.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_uitools_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_webchannel.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_webchannel_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_websockets.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_websockets_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_widgets.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_widgets_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_winextras.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_winextras_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_xml.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_xml_private.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns.pri H:\QT\5.7\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri H:\QT\5.7\mingw53_32\mkspecs\features\qt_functions.prf H:\QT\5.7\mingw53_32\mkspecs\features\qt_config.prf H:\QT\5.7\mingw53_32\mkspecs\features\win32\qt_config.prf H:\QT\5.7\mingw53_32\mkspecs\win32-g++\qmake.conf H:\QT\5.7\mingw53_32\mkspecs\features\spec_post.prf .qmake.stash H:\QT\5.7\mingw53_32\mkspecs\features\exclusive_builds.prf H:\QT\5.7\mingw53_32\mkspecs\features\default_pre.prf H:\QT\5.7\mingw53_32\mkspecs\features\win32\default_pre.prf H:\QT\5.7\mingw53_32\mkspecs\features\resolve_config.prf H:\QT\5.7\mingw53_32\mkspecs\features\exclusive_builds_post.prf H:\QT\5.7\mingw53_32\mkspecs\features\default_post.prf H:\QT\5.7\mingw53_32\mkspecs\features\build_pass.prf H:\QT\5.7\mingw53_32\mkspecs\features\qml_debug.prf H:\QT\5.7\mingw53_32\mkspecs\features\win32\rtti.prf H:\QT\5.7\mingw53_32\mkspecs\features\precompile_header.prf H:\QT\5.7\mingw53_32\mkspecs\features\warn_on.prf H:\QT\5.7\mingw53_32\mkspecs\features\qt.prf H:\QT\5.7\mingw53_32\mkspecs\features\resources.prf H:\QT\5.7\mingw53_32\mkspecs\features\moc.prf H:\QT\5.7\mingw53_32\mkspecs\features\win32\opengl.prf H:\QT\5.7\mingw53_32\mkspecs\features\uic.prf H:\QT\5.7\mingw53_32\mkspecs\features\file_copies.prf H:\QT\5.7\mingw53_32\mkspecs\features\win32\windows.prf H:\QT\5.7\mingw53_32\mkspecs\features\testcase_targets.prf H:\QT\5.7\mingw53_32\mkspecs\features\exceptions.prf H:\QT\5.7\mingw53_32\mkspecs\features\yacc.prf H:\QT\5.7\mingw53_32\mkspecs\features\lex.prf ..\TspEvo2\TspEvo.pro ..\TspEvo2\qml.qrc H:\QT\5.7\mingw53_32\lib\qtmaind.prl H:\QT\5.7\mingw53_32\lib\Qt5Quickd.prl H:\QT\5.7\mingw53_32\lib\Qt5OpenGLd.prl H:\QT\5.7\mingw53_32\lib\Qt5Widgetsd.prl H:\QT\5.7\mingw53_32\lib\Qt5Guid.prl H:\QT\5.7\mingw53_32\lib\Qt5Qmld.prl H:\QT\5.7\mingw53_32\lib\Qt5Networkd.prl H:\QT\5.7\mingw53_32\lib\Qt5Cored.prl  NO_PCH_SOURCES RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES FORMS YACCSOURCES YACCSOURCES LEXSOURCES 
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\main.o debug\tspevosolverviewmodel.o debug\tspevofitnesshistorydatamodel.o debug\tsppathgraphview.o debug\tspdataservice.o debug\tspeval.o debug\tspxoverdual.o debug\tspdrouteinit.o debug\moroutegraph.o debug\tspdoualobjectivevectortraits.o debug\tspdualeval.o debug\tspdualcrossover.o debug\tspdualmutation.o debug\tspdroute.o debug\tspgenerationevaluationcheckpoint.o debug\tspgenerationprogressmonitor.o debug\CMAParams.o debug\CMAState.o debug\eig.o debug\make_algo_scalar_es.o debug\make_algo_scalar_real.o debug\make_checkpoint_es.o debug\make_checkpoint_real.o debug\make_continue_es.o debug\make_continue_real.o debug\make_genotype_es.o debug\make_genotype_real.o debug\make_op_es.o debug\make_op_real.o debug\make_pop_es.o debug\make_pop_real.o debug\make_run_es.o debug\make_run_real.o debug\make_algo_scalar_ga.o debug\make_checkpoint_ga.o debug\make_continue_ga.o debug\make_genotype_ga.o debug\make_op_ga.o debug\make_pop_ga.o debug\make_run_ga.o debug\eoData.o debug\eoFileMonitor.o debug\eoIntBounds.o debug\eoLogger.o debug\eoOStreamMonitor.o debug\eoParallel.o debug\eoParser.o debug\eoRealBounds.o debug\eoRNG.o debug\eoSignal.o debug\eoState.o debug\eoUpdater.o debug\make_help.o debug\eoCtrlCContinue.o debug\eoFunctorStore.o debug\eoPersistent.o debug\eoPrintable.o debug\eoScalarFitnessAssembled.o debug\eoSIGContinue.o debug\moeoObjectiveVectorTraits.o debug\tspdualsolverresultsurfaceviewmodel.o debug\qsurfacemodelresultvertextsp.o debug\qrc_qml.o debug\moc_tspevosolverviewmodel.o debug\moc_tspevofitnesshistorydatamodel.o debug\moc_tsppathgraphview.o debug\moc_tspdualsolverresultsurfaceviewmodel.o debug\moc_qsurfacemodelresultvertextsp.o
+	-$(DEL_FILE) debug\main.o debug\tspevosolverviewmodel.o debug\tspevofitnesshistorydatamodel.o debug\tsppathgraphview.o debug\tspdataservice.o debug\tspeval.o debug\tspxoverdual.o debug\tspdrouteinit.o debug\moroutegraph.o debug\tspdoualobjectivevectortraits.o debug\tspdualeval.o debug\tspdualcrossover.o debug\tspdualmutation.o debug\tspdroute.o debug\tspgenerationevaluationcheckpoint.o debug\tspgenerationprogressmonitor.o debug\CMAParams.o debug\CMAState.o debug\eig.o debug\make_algo_scalar_es.o debug\make_algo_scalar_real.o debug\make_checkpoint_es.o debug\make_checkpoint_real.o debug\make_continue_es.o debug\make_continue_real.o debug\make_genotype_es.o debug\make_genotype_real.o debug\make_op_es.o debug\make_op_real.o debug\make_pop_es.o debug\make_pop_real.o debug\make_run_es.o debug\make_run_real.o debug\make_algo_scalar_ga.o debug\make_checkpoint_ga.o debug\make_continue_ga.o debug\make_genotype_ga.o debug\make_op_ga.o debug\make_pop_ga.o debug\make_run_ga.o debug\eoData.o debug\eoFileMonitor.o debug\eoIntBounds.o debug\eoLogger.o debug\eoOStreamMonitor.o debug\eoParallel.o debug\eoParser.o debug\eoRealBounds.o debug\eoRNG.o debug\eoSignal.o debug\eoState.o debug\eoUpdater.o debug\make_help.o debug\eoCtrlCContinue.o debug\eoFunctorStore.o debug\eoPersistent.o debug\eoPrintable.o debug\eoScalarFitnessAssembled.o debug\eoSIGContinue.o debug\moeoObjectiveVectorTraits.o debug\tspdualsolverresultsurfaceviewmodel.o debug\qsurfacemodelresultvertextsp.o debug\tspdualsolverresultsparetosurfaceviewmodel.o debug\qrc_qml.o debug\moc_tspevosolverviewmodel.o debug\moc_tspevofitnesshistorydatamodel.o debug\moc_tsppathgraphview.o debug\moc_tspdualsolverresultsurfaceviewmodel.o debug\moc_qsurfacemodelresultvertextsp.o debug\moc_tspdualsolverresultsparetosurfaceviewmodel.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -877,9 +883,9 @@ debug/qrc_qml.cpp: ../TspEvo2/qml.qrc \
 		../TspEvo2/main.qml
 	H:\QT\5.7\mingw53_32\bin\rcc.exe -name qml ..\TspEvo2\qml.qrc -o debug\qrc_qml.cpp
 
-compiler_moc_header_make_all: debug/moc_tspevosolverviewmodel.cpp debug/moc_tspevofitnesshistorydatamodel.cpp debug/moc_tsppathgraphview.cpp debug/moc_tspdualsolverresultsurfaceviewmodel.cpp debug/moc_qsurfacemodelresultvertextsp.cpp
+compiler_moc_header_make_all: debug/moc_tspevosolverviewmodel.cpp debug/moc_tspevofitnesshistorydatamodel.cpp debug/moc_tsppathgraphview.cpp debug/moc_tspdualsolverresultsurfaceviewmodel.cpp debug/moc_qsurfacemodelresultvertextsp.cpp debug/moc_tspdualsolverresultsparetosurfaceviewmodel.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) debug\moc_tspevosolverviewmodel.cpp debug\moc_tspevofitnesshistorydatamodel.cpp debug\moc_tsppathgraphview.cpp debug\moc_tspdualsolverresultsurfaceviewmodel.cpp debug\moc_qsurfacemodelresultvertextsp.cpp
+	-$(DEL_FILE) debug\moc_tspevosolverviewmodel.cpp debug\moc_tspevofitnesshistorydatamodel.cpp debug\moc_tsppathgraphview.cpp debug\moc_tspdualsolverresultsurfaceviewmodel.cpp debug\moc_qsurfacemodelresultvertextsp.cpp debug\moc_tspdualsolverresultsparetosurfaceviewmodel.cpp
 debug/moc_tspevosolverviewmodel.cpp: H:/QT/5.7/mingw53_32/include/QtCore/QObject \
 		H:/QT/5.7/mingw53_32/include/QtCore/qobject.h \
 		H:/QT/5.7/mingw53_32/include/QtCore/qobjectdefs.h \
@@ -2213,6 +2219,380 @@ debug/moc_qsurfacemodelresultvertextsp.cpp: H:/QT/5.7/mingw53_32/include/QtCore/
 		H:/QT/5.7/mingw53_32/bin/moc.exe
 	H:\QT\5.7\mingw53_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 @debug/mocinclude.opt ..\TspEvo2\qsurfacemodelresultvertextsp.h -o debug\moc_qsurfacemodelresultvertextsp.cpp
 
+debug/moc_tspdualsolverresultsparetosurfaceviewmodel.cpp: H:/QT/5.7/mingw53_32/include/QtCore/QObject \
+		H:/QT/5.7/mingw53_32/include/QtCore/qobject.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qobjectdefs.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qnamespace.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qglobal.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qconfig.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qfeatures.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qsystemdetection.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qprocessordetection.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qcompilerdetection.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qtypeinfo.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qtypetraits.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qisenum.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qsysinfo.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qlogging.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qflags.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qatomic.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qbasicatomic.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qatomic_bootstrap.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qgenericatomic.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qatomic_cxx11.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qatomic_msvc.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qglobalstatic.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qmutex.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qnumeric.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qversiontagging.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qobjectdefs_impl.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qstring.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qchar.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qbytearray.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qrefcount.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qarraydata.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qstringbuilder.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qlist.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qalgorithms.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qiterator.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qhashfunctions.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qpair.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qbytearraylist.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qstringlist.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qregexp.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qstringmatcher.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qcoreevent.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qscopedpointer.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qmetatype.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qvarlengtharray.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qcontainerfwd.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qobject_impl.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/QAbstractListModel \
+		H:/QT/5.7/mingw53_32/include/QtCore/qabstractitemmodel.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qvariant.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qmap.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qdebug.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qhash.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qtextstream.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qiodevice.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qlocale.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qshareddata.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qvector.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qpoint.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qset.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qcontiguouscache.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qsharedpointer.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qsharedpointer_impl.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/QHash \
+		H:/QT/5.7/mingw53_32/include/QtCore/QByteArray \
+		../TspEvo2/tspdataservice.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/QVector \
+		H:/QT/5.7/mingw53_32/include/QtCore/QAbstractTableModel \
+		H:/QT/5.7/mingw53_32/include/QtCore/QRect \
+		H:/QT/5.7/mingw53_32/include/QtCore/qrect.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qmargins.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qsize.h \
+		../TspEvo2/paradiseo/include/eo/eoEasyEA.h \
+		../TspEvo2/paradiseo/include/eo/apply.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoParallel.h \
+		../TspEvo2/paradiseo/include/eo/eoObject.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoData.h \
+		../TspEvo2/paradiseo/include/eo/utils/compatibility.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoParser.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoParam.h \
+		../TspEvo2/paradiseo/include/eo/eoScalarFitness.h \
+		../TspEvo2/paradiseo/include/eo/eoPersistent.h \
+		../TspEvo2/paradiseo/include/eo/eoPrintable.h \
+		../TspEvo2/paradiseo/include/eo/eoExceptions.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoLogger.h \
+		../TspEvo2/paradiseo/include/eo/eoFunctor.h \
+		../TspEvo2/paradiseo/include/eo/eoAlgo.h \
+		../TspEvo2/paradiseo/include/eo/eoPop.h \
+		../TspEvo2/paradiseo/include/eo/eoOp.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoRNG.h \
+		../TspEvo2/paradiseo/include/eo/eoInit.h \
+		../TspEvo2/paradiseo/include/eo/eoSTLFunctor.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoRndGenerators.h \
+		../TspEvo2/paradiseo/include/eo/utils/rnd_generators.h \
+		../TspEvo2/paradiseo/include/eo/eoPopEvalFunc.h \
+		../TspEvo2/paradiseo/include/eo/eoEvalFunc.h \
+		../TspEvo2/paradiseo/include/eo/eoContinue.h \
+		../TspEvo2/paradiseo/include/eo/eoSelect.h \
+		../TspEvo2/paradiseo/include/eo/eoTransform.h \
+		../TspEvo2/paradiseo/include/eo/eoBreed.h \
+		../TspEvo2/paradiseo/include/eo/eoMergeReduce.h \
+		../TspEvo2/paradiseo/include/eo/eoMerge.h \
+		../TspEvo2/paradiseo/include/eo/eoReduce.h \
+		../TspEvo2/paradiseo/include/eo/utils/selectors.h \
+		../TspEvo2/paradiseo/include/eo/eoReplacement.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoHowMany.h \
+		../TspEvo2/paradiseo/include/eo/eoGenContinue.h \
+		../TspEvo2/paradiseo/include/eo/eoStochTournamentSelect.h \
+		../TspEvo2/paradiseo/include/eo/eoSelectOne.h \
+		../TspEvo2/paradiseo/include/eo/eoSGATransform.h \
+		../TspEvo2/paradiseo/include/eo/eoInvalidateOps.h \
+		../TspEvo2/paradiseo/include/eo/eoSelectNumber.h \
+		../TspEvo2/paradiseo/include/moeo/moeo \
+		../TspEvo2/paradiseo/include/eo/eo \
+		../TspEvo2/paradiseo/include/eo/eoDualFitness.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoStat.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoMonitor.h \
+		../TspEvo2/paradiseo/include/eo/EO.h \
+		../TspEvo2/paradiseo/include/eo/eoVector.h \
+		../TspEvo2/paradiseo/include/eo/other/eoString.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoUniformInit.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoRealBounds.h \
+		../TspEvo2/paradiseo/include/eo/eoGenOp.h \
+		../TspEvo2/paradiseo/include/eo/eoPopulator.h \
+		../TspEvo2/paradiseo/include/eo/eoFunctorStore.h \
+		../TspEvo2/paradiseo/include/eo/eoCloneOps.h \
+		../TspEvo2/paradiseo/include/eo/eoOpContainer.h \
+		../TspEvo2/paradiseo/include/eo/eoProportionalCombinedOp.h \
+		../TspEvo2/paradiseo/include/eo/eoSGAGenOp.h \
+		../TspEvo2/paradiseo/include/eo/eoPropGAGenOp.h \
+		../TspEvo2/paradiseo/include/eo/eoEvalFuncPtr.h \
+		../TspEvo2/paradiseo/include/eo/eoEvalCounterThrowException.h \
+		../TspEvo2/paradiseo/include/eo/eoEvalFuncCounter.h \
+		../TspEvo2/paradiseo/include/eo/eoEvalTimeThrowException.h \
+		../TspEvo2/paradiseo/include/eo/eoEvalUserTimeThrowException.h \
+		../TspEvo2/paradiseo/include/eo/eoCombinedContinue.h \
+		../TspEvo2/paradiseo/include/eo/eoSteadyFitContinue.h \
+		../TspEvo2/paradiseo/include/eo/eoEvalContinue.h \
+		../TspEvo2/paradiseo/include/eo/eoFitContinue.h \
+		../TspEvo2/paradiseo/include/eo/eoPeriodicContinue.h \
+		../TspEvo2/paradiseo/include/eo/eoTimeContinue.h \
+		../TspEvo2/paradiseo/include/eo/eoCtrlCContinue.h \
+		../TspEvo2/paradiseo/include/eo/eoRandomSelect.h \
+		../TspEvo2/paradiseo/include/eo/eoSequentialSelect.h \
+		../TspEvo2/paradiseo/include/eo/eoDetTournamentSelect.h \
+		../TspEvo2/paradiseo/include/eo/eoProportionalSelect.h \
+		../TspEvo2/paradiseo/include/eo/eoFitnessScalingSelect.h \
+		../TspEvo2/paradiseo/include/eo/eoSelectFromWorth.h \
+		../TspEvo2/paradiseo/include/eo/eoPerf2Worth.h \
+		../TspEvo2/paradiseo/include/eo/eoLinearFitScaling.h \
+		../TspEvo2/paradiseo/include/eo/eoRankingSelect.h \
+		../TspEvo2/paradiseo/include/eo/eoRanking.h \
+		../TspEvo2/paradiseo/include/eo/eoSharingSelect.h \
+		../TspEvo2/paradiseo/include/eo/eoSharing.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoDistance.h \
+		../TspEvo2/paradiseo/include/eo/eoTruncatedSelectOne.h \
+		../TspEvo2/paradiseo/include/eo/eoSelectPerc.h \
+		../TspEvo2/paradiseo/include/eo/eoSelectMany.h \
+		../TspEvo2/paradiseo/include/eo/eoTruncatedSelectMany.h \
+		../TspEvo2/paradiseo/include/eo/eoDetSelect.h \
+		../TspEvo2/paradiseo/include/eo/eoGeneralBreeder.h \
+		../TspEvo2/paradiseo/include/eo/eoReduceMerge.h \
+		../TspEvo2/paradiseo/include/eo/eoSurviveAndDie.h \
+		../TspEvo2/paradiseo/include/eo/eoNDSorting.h \
+		../TspEvo2/paradiseo/include/eo/eoSGA.h \
+		../TspEvo2/paradiseo/include/eo/utils/checkpointing \
+		../TspEvo2/paradiseo/include/eo/utils/eoState.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoUpdater.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoFileMonitor.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoStdoutMonitor.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoOStreamMonitor.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoGnuplot1DMonitor.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoGnuplot.h \
+		../TspEvo2/paradiseo/include/eo/utils/pipecom.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoGnuplot1DSnapshot.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoRealVectorBounds.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoFileSnapshot.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoCheckPoint.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoSignal.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoScalarFitnessStat.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoAssembledFitnessStat.h \
+		../TspEvo2/paradiseo/include/eo/eoScalarFitnessAssembled.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoFDCStat.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoMOFitnessStat.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoPopStat.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoTimeCounter.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoGenCounter.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoIntBounds.h \
+		../TspEvo2/paradiseo/include/eo/other/external_eo \
+		../TspEvo2/paradiseo/include/eo/other/eoExternalEO.h \
+		../TspEvo2/paradiseo/include/eo/other/eoExternalOpFunctions.h \
+		../TspEvo2/paradiseo/include/eo/eoCounter.h \
+		../TspEvo2/paradiseo/include/eo/PO.h \
+		../TspEvo2/paradiseo/include/eo/eoVectorParticle.h \
+		../TspEvo2/paradiseo/include/eo/eoBitParticle.h \
+		../TspEvo2/paradiseo/include/eo/eoRealParticle.h \
+		../TspEvo2/paradiseo/include/eo/eoParticleBestInit.h \
+		../TspEvo2/paradiseo/include/eo/eoInitializer.h \
+		../TspEvo2/paradiseo/include/eo/eoVelocityInit.h \
+		../TspEvo2/paradiseo/include/eo/eoTopology.h \
+		../TspEvo2/paradiseo/include/eo/eoNeighborhood.h \
+		../TspEvo2/paradiseo/include/eo/eoVelocity.h \
+		../TspEvo2/paradiseo/include/eo/eoStandardVelocity.h \
+		../TspEvo2/paradiseo/include/eo/eoRealBoundModifier.h \
+		../TspEvo2/paradiseo/include/eo/eoExtendedVelocity.h \
+		../TspEvo2/paradiseo/include/eo/eoIntegerVelocity.h \
+		../TspEvo2/paradiseo/include/eo/eoConstrictedVelocity.h \
+		../TspEvo2/paradiseo/include/eo/eoFixedInertiaWeightedVelocity.h \
+		../TspEvo2/paradiseo/include/eo/eoVariableInertiaWeightedVelocity.h \
+		../TspEvo2/paradiseo/include/eo/eoWeightUpdater.h \
+		../TspEvo2/paradiseo/include/eo/eoConstrictedVariableWeightVelocity.h \
+		../TspEvo2/paradiseo/include/eo/eoFlight.h \
+		../TspEvo2/paradiseo/include/eo/eoStandardFlight.h \
+		../TspEvo2/paradiseo/include/eo/eoBinaryFlight.h \
+		../TspEvo2/paradiseo/include/eo/eoSigBinaryFlight.h \
+		../TspEvo2/paradiseo/include/eo/eoStarTopology.h \
+		../TspEvo2/paradiseo/include/eo/eoSocialNeighborhood.h \
+		../TspEvo2/paradiseo/include/eo/eoLinearTopology.h \
+		../TspEvo2/paradiseo/include/eo/eoRingTopology.h \
+		../TspEvo2/paradiseo/include/eo/eoPSO.h \
+		../TspEvo2/paradiseo/include/eo/eoEasyPSO.h \
+		../TspEvo2/paradiseo/include/eo/eoSyncEasyPSO.h \
+		../TspEvo2/paradiseo/include/eo/eoRandomRealWeightUp.h \
+		../TspEvo2/paradiseo/include/eo/eoLinearDecreasingWeightUp.h \
+		../TspEvo2/paradiseo/include/eo/eoGaussRealWeightUp.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoAlgo.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoASEEA.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoEA.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoPopAlgo.h \
+		../TspEvo2/paradiseo/include/moeo/archive/moeoArchive.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoObjectiveVectorComparator.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoParetoObjectiveVectorComparator.h \
+		../TspEvo2/paradiseo/include/moeo/selection/moeoRandomSelect.h \
+		../TspEvo2/paradiseo/include/moeo/selection/moeoSelectOne.h \
+		../TspEvo2/paradiseo/include/moeo/selection/moeoSelectFromPopAndArch.h \
+		../TspEvo2/paradiseo/include/moeo/selection/moeoDetArchiveSelect.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoEasyEA.h \
+		../TspEvo2/paradiseo/include/moeo/diversity/moeoDiversityAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/diversity/moeoDummyDiversityAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/replacement/moeoReplacement.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoIBEA.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoExpBinaryIndicatorBasedFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoBinaryIndicatorBasedFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoIndicatorBasedFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/metric/moeoNormalizedSolutionVsSolutionBinaryMetric.h \
+		../TspEvo2/paradiseo/include/moeo/metric/moeoMetric.h \
+		../TspEvo2/paradiseo/include/moeo/utils/moeoConvertPopToObjectiveVectors.h \
+		../TspEvo2/paradiseo/include/moeo/replacement/moeoEnvironmentalReplacement.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoComparator.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoFitnessThenDiversityComparator.h \
+		../TspEvo2/paradiseo/include/moeo/selection/moeoDetTournamentSelect.h \
+		../TspEvo2/paradiseo/include/moeo/selection/moeoSelectors.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoMOGA.h \
+		../TspEvo2/paradiseo/include/moeo/diversity/moeoFrontByFrontSharingDiversityAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/diversity/moeoSharingDiversityAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoDiversityThenFitnessComparator.h \
+		../TspEvo2/paradiseo/include/moeo/distance/moeoDistance.h \
+		../TspEvo2/paradiseo/include/moeo/distance/moeoDistanceMatrix.h \
+		../TspEvo2/paradiseo/include/moeo/distance/moeoEuclideanDistance.h \
+		../TspEvo2/paradiseo/include/moeo/distance/moeoObjSpaceDistance.h \
+		../TspEvo2/paradiseo/include/moeo/utils/moeoObjectiveVectorNormalizer.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoDominanceRankFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/archive/moeoUnboundedArchive.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoDominanceBasedFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/utils/moeoDominanceMatrix.h \
+		../TspEvo2/paradiseo/include/moeo/replacement/moeoElitistReplacement.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoNSGA.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoDominanceDepthFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoObjectiveObjectiveVectorComparator.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoNSGAII.h \
+		../TspEvo2/paradiseo/include/moeo/diversity/moeoFrontByFrontCrowdingDiversityAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/diversity/moeoCrowdingDiversityAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoOneObjectiveComparator.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoPtrComparator.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoPLS1.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoUnifiedDominanceBasedLS.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoPopLS.h \
+		../TspEvo2/paradiseo/include/moeo/explorer/moeoPopNeighborhoodExplorer.h \
+		../TspEvo2/paradiseo/include/moeo/selection/moeoUnvisitedSelect.h \
+		../TspEvo2/paradiseo/include/moeo/selection/moeoNumberUnvisitedSelect.h \
+		../TspEvo2/paradiseo/include/moeo/explorer/moeoExhaustiveNeighborhoodExplorer.h \
+		../TspEvo2/paradiseo/include/mo/neighborhood/moNeighbor.h \
+		../TspEvo2/paradiseo/include/mo/neighborhood/moNeighborhood.h \
+		../TspEvo2/paradiseo/include/mo/eval/moEval.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoPLS2.h \
+		../TspEvo2/paradiseo/include/moeo/selection/moeoExhaustiveUnvisitedSelect.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoSEEA.h \
+		../TspEvo2/paradiseo/include/moeo/replacement/moeoGenerationalReplacement.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoSPEA2.h \
+		../TspEvo2/paradiseo/include/moeo/diversity/moeoNearestNeighborDiversityAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoDominanceCountFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoDominanceCountRankingFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/archive/moeoFixedSizeArchive.h \
+		../TspEvo2/paradiseo/include/moeo/archive/moeo2DMinHypervolumeArchive.h \
+		../TspEvo2/paradiseo/include/moeo/archive/moeoBoundedArchive.h \
+		../TspEvo2/paradiseo/include/moeo/archive/moeoEpsilonHyperboxArchive.h \
+		../TspEvo2/paradiseo/include/moeo/archive/moeoFitDivBoundedArchive.h \
+		../TspEvo2/paradiseo/include/moeo/archive/moeoImprOnlyBoundedArchive.h \
+		../TspEvo2/paradiseo/include/moeo/archive/moeoSPEA2Archive.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoAggregativeComparator.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoEpsilonObjectiveVectorComparator.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoFitnessComparator.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoGDominanceObjectiveVectorComparator.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoStrictObjectiveVectorComparator.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoWeakObjectiveVectorComparator.h \
+		../TspEvo2/paradiseo/include/moeo/core/MOEO.h \
+		../TspEvo2/paradiseo/include/moeo/core/moeoBitVector.h \
+		../TspEvo2/paradiseo/include/moeo/core/moeoVector.h \
+		../TspEvo2/paradiseo/include/moeo/core/moeoEvalFunc.h \
+		../TspEvo2/paradiseo/include/moeo/core/moeoIntVector.h \
+		../TspEvo2/paradiseo/include/moeo/core/moeoObjectiveVector.h \
+		../TspEvo2/paradiseo/include/moeo/core/moeoObjectiveVectorTraits.h \
+		../TspEvo2/paradiseo/include/moeo/core/moeoRealObjectiveVector.h \
+		../TspEvo2/paradiseo/include/moeo/core/moeoRealVector.h \
+		../TspEvo2/paradiseo/include/moeo/distance/moeoManhattanDistance.h \
+		../TspEvo2/paradiseo/include/moeo/distance/moeoNormalizedDistance.h \
+		../TspEvo2/paradiseo/include/moeo/explorer/moeoFirstImprovingNeighborhoodExplorer.h \
+		../TspEvo2/paradiseo/include/moeo/explorer/moeoSubNeighborhoodExplorer.h \
+		../TspEvo2/paradiseo/include/moeo/explorer/moeoNoDesimprovingNeighborhoodExplorer.h \
+		../TspEvo2/paradiseo/include/moeo/explorer/moeoSimpleSubNeighborhoodExplorer.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoAggregationFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoSingleObjectivization.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoConstraintFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoCriterionBasedFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoDummyFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoReferencePointIndicatorBasedFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoScalarFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoUnaryIndicatorBasedFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/hybridization/moeoDMLSGenUpdater.h \
+		../TspEvo2/paradiseo/include/moeo/hybridization/moeoDMLSMonOp.h \
+		../TspEvo2/paradiseo/include/moeo/metric/moeoAdditiveEpsilonBinaryMetric.h \
+		../TspEvo2/paradiseo/include/moeo/metric/moeoContributionMetric.h \
+		../TspEvo2/paradiseo/include/moeo/metric/moeoDistanceMetric.h \
+		../TspEvo2/paradiseo/include/moeo/metric/moeoEntropyMetric.h \
+		../TspEvo2/paradiseo/include/moeo/metric/moeoHypervolumeBinaryMetric.h \
+		../TspEvo2/paradiseo/include/moeo/metric/moeoHyperVolumeDifferenceMetric.h \
+		../TspEvo2/paradiseo/include/moeo/metric/moeoHyperVolumeMetric.h \
+		../TspEvo2/paradiseo/include/moeo/metric/moeoVecVsVecAdditiveEpsilonBinaryMetric.h \
+		../TspEvo2/paradiseo/include/moeo/metric/moeoVecVsVecEpsilonBinaryMetric.h \
+		../TspEvo2/paradiseo/include/moeo/metric/moeoVecVsVecMultiplicativeEpsilonBinaryMetric.h \
+		../TspEvo2/paradiseo/include/moeo/scalarStuffs/archive/moeoArchiveIndex.h \
+		../TspEvo2/paradiseo/include/moeo/scalarStuffs/archive/moeoIndexedArchive.h \
+		../TspEvo2/paradiseo/include/moeo/scalarStuffs/archive/moeoQuickUnboundedArchiveIndex.h \
+		../TspEvo2/paradiseo/include/moeo/scalarStuffs/distance/moeoAugmentedWeightedChebychevDistance.h \
+		../TspEvo2/paradiseo/include/moeo/scalarStuffs/fitness/moeoAchievementFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/scalarStuffs/fitness/moeoAchievementScalarizingFunctionMetricFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/scalarStuffs/distance/moeoAchievementScalarizingFunctionDistance.h \
+		../TspEvo2/paradiseo/include/moeo/scalarStuffs/fitness/moeoAugmentedAchievementScalarizingFunctionMetricFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/scalarStuffs/distance/moeoAugmentedAchievementScalarizingFunctionDistance.h \
+		../TspEvo2/paradiseo/include/moeo/scalarStuffs/fitness/moeoAugmentedWeightedChebychevMetricFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/scalarStuffs/fitness/moeoWeightedChebychevMetricFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/scalarStuffs/distance/moeoWeightedChebychevDistance.h \
+		../TspEvo2/paradiseo/include/moeo/selection/moeoRouletteSelect.h \
+		../TspEvo2/paradiseo/include/moeo/selection/moeoStochTournamentSelect.h \
+		../TspEvo2/paradiseo/include/moeo/utils/moeoArchiveObjectiveVectorSavingUpdater.h \
+		../TspEvo2/paradiseo/include/moeo/utils/moeoArchiveUpdater.h \
+		../TspEvo2/paradiseo/include/moeo/utils/moeoAverageObjVecStat.h \
+		../TspEvo2/paradiseo/include/moeo/utils/moeoObjVecStat.h \
+		../TspEvo2/paradiseo/include/moeo/utils/moeoBestObjVecStat.h \
+		../TspEvo2/paradiseo/include/moeo/utils/moeoBinaryMetricSavingUpdater.h \
+		../TspEvo2/MOEO/tspdroute.h \
+		../TspEvo2/MOEO/tspobjectivevector.h \
+		../TspEvo2/tspdualobjectivevectortraits.h \
+		../TspEvo2/moroutegraph.h \
+		../TspEvo2/tspdualeval.h \
+		../TspEvo2/qsurfacemodelresultvertextsp.h \
+		../TspEvo2/tspdualsolverresultsurfaceviewmodel.h \
+		../TspEvo2/tspdualsolverresultsparetosurfaceviewmodel.h \
+		debug/mocinclude.opt \
+		H:/QT/5.7/mingw53_32/bin/moc.exe
+	H:\QT\5.7\mingw53_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 @debug/mocinclude.opt ..\TspEvo2\tspdualsolverresultsparetosurfaceviewmodel.h -o debug\moc_tspdualsolverresultsparetosurfaceviewmodel.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
 compiler_uic_make_all:
@@ -2686,7 +3066,8 @@ debug/main.o: ../TspEvo2/main.cpp H:/QT/5.7/mingw53_32/include/QtGui/QGuiApplica
 		../TspEvo2/tspdualsolverresultsurfaceviewmodel.h \
 		H:/QT/5.7/mingw53_32/include/QtCore/QAbstractListModel \
 		H:/QT/5.7/mingw53_32/include/QtCore/QByteArray \
-		../TspEvo2/qsurfacemodelresultvertextsp.h
+		../TspEvo2/qsurfacemodelresultvertextsp.h \
+		../TspEvo2/tspdualsolverresultsparetosurfaceviewmodel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\TspEvo2\main.cpp
 
 debug/tspevosolverviewmodel.o: ../TspEvo2/Model/tspevosolverviewmodel.cpp ../TspEvo2/Model/tspevosolverviewmodel.h \
@@ -8188,6 +8569,378 @@ debug/qsurfacemodelresultvertextsp.o: ../TspEvo2/qsurfacemodelresultvertextsp.cp
 		H:/QT/5.7/mingw53_32/include/QtCore/qsize.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\qsurfacemodelresultvertextsp.o ..\TspEvo2\qsurfacemodelresultvertextsp.cpp
 
+debug/tspdualsolverresultsparetosurfaceviewmodel.o: ../TspEvo2/tspdualsolverresultsparetosurfaceviewmodel.cpp ../TspEvo2/tspdualsolverresultsparetosurfaceviewmodel.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/QObject \
+		H:/QT/5.7/mingw53_32/include/QtCore/qobject.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qobjectdefs.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qnamespace.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qglobal.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qconfig.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qfeatures.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qsystemdetection.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qprocessordetection.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qcompilerdetection.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qtypeinfo.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qtypetraits.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qisenum.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qsysinfo.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qlogging.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qflags.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qatomic.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qbasicatomic.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qatomic_bootstrap.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qgenericatomic.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qatomic_cxx11.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qatomic_msvc.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qglobalstatic.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qmutex.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qnumeric.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qversiontagging.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qobjectdefs_impl.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qstring.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qchar.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qbytearray.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qrefcount.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qarraydata.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qstringbuilder.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qlist.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qalgorithms.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qiterator.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qhashfunctions.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qpair.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qbytearraylist.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qstringlist.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qregexp.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qstringmatcher.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qcoreevent.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qscopedpointer.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qmetatype.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qvarlengtharray.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qcontainerfwd.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qobject_impl.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/QAbstractListModel \
+		H:/QT/5.7/mingw53_32/include/QtCore/qabstractitemmodel.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qvariant.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qmap.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qdebug.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qhash.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qtextstream.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qiodevice.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qlocale.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qshareddata.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qvector.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qpoint.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qset.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qcontiguouscache.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qsharedpointer.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qsharedpointer_impl.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/QHash \
+		H:/QT/5.7/mingw53_32/include/QtCore/QByteArray \
+		../TspEvo2/tspdataservice.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/QVector \
+		H:/QT/5.7/mingw53_32/include/QtCore/QAbstractTableModel \
+		H:/QT/5.7/mingw53_32/include/QtCore/QRect \
+		H:/QT/5.7/mingw53_32/include/QtCore/qrect.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qmargins.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/qsize.h \
+		../TspEvo2/paradiseo/include/eo/eoEasyEA.h \
+		../TspEvo2/paradiseo/include/eo/apply.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoParallel.h \
+		../TspEvo2/paradiseo/include/eo/eoObject.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoData.h \
+		../TspEvo2/paradiseo/include/eo/utils/compatibility.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoParser.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoParam.h \
+		../TspEvo2/paradiseo/include/eo/eoScalarFitness.h \
+		../TspEvo2/paradiseo/include/eo/eoPersistent.h \
+		../TspEvo2/paradiseo/include/eo/eoPrintable.h \
+		../TspEvo2/paradiseo/include/eo/eoExceptions.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoLogger.h \
+		../TspEvo2/paradiseo/include/eo/eoFunctor.h \
+		../TspEvo2/paradiseo/include/eo/eoAlgo.h \
+		../TspEvo2/paradiseo/include/eo/eoPop.h \
+		../TspEvo2/paradiseo/include/eo/eoOp.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoRNG.h \
+		../TspEvo2/paradiseo/include/eo/eoInit.h \
+		../TspEvo2/paradiseo/include/eo/eoSTLFunctor.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoRndGenerators.h \
+		../TspEvo2/paradiseo/include/eo/utils/rnd_generators.h \
+		../TspEvo2/paradiseo/include/eo/eoPopEvalFunc.h \
+		../TspEvo2/paradiseo/include/eo/eoEvalFunc.h \
+		../TspEvo2/paradiseo/include/eo/eoContinue.h \
+		../TspEvo2/paradiseo/include/eo/eoSelect.h \
+		../TspEvo2/paradiseo/include/eo/eoTransform.h \
+		../TspEvo2/paradiseo/include/eo/eoBreed.h \
+		../TspEvo2/paradiseo/include/eo/eoMergeReduce.h \
+		../TspEvo2/paradiseo/include/eo/eoMerge.h \
+		../TspEvo2/paradiseo/include/eo/eoReduce.h \
+		../TspEvo2/paradiseo/include/eo/utils/selectors.h \
+		../TspEvo2/paradiseo/include/eo/eoReplacement.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoHowMany.h \
+		../TspEvo2/paradiseo/include/eo/eoGenContinue.h \
+		../TspEvo2/paradiseo/include/eo/eoStochTournamentSelect.h \
+		../TspEvo2/paradiseo/include/eo/eoSelectOne.h \
+		../TspEvo2/paradiseo/include/eo/eoSGATransform.h \
+		../TspEvo2/paradiseo/include/eo/eoInvalidateOps.h \
+		../TspEvo2/paradiseo/include/eo/eoSelectNumber.h \
+		../TspEvo2/paradiseo/include/moeo/moeo \
+		../TspEvo2/paradiseo/include/eo/eo \
+		../TspEvo2/paradiseo/include/eo/eoDualFitness.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoStat.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoMonitor.h \
+		../TspEvo2/paradiseo/include/eo/EO.h \
+		../TspEvo2/paradiseo/include/eo/eoVector.h \
+		../TspEvo2/paradiseo/include/eo/other/eoString.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoUniformInit.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoRealBounds.h \
+		../TspEvo2/paradiseo/include/eo/eoGenOp.h \
+		../TspEvo2/paradiseo/include/eo/eoPopulator.h \
+		../TspEvo2/paradiseo/include/eo/eoFunctorStore.h \
+		../TspEvo2/paradiseo/include/eo/eoCloneOps.h \
+		../TspEvo2/paradiseo/include/eo/eoOpContainer.h \
+		../TspEvo2/paradiseo/include/eo/eoProportionalCombinedOp.h \
+		../TspEvo2/paradiseo/include/eo/eoSGAGenOp.h \
+		../TspEvo2/paradiseo/include/eo/eoPropGAGenOp.h \
+		../TspEvo2/paradiseo/include/eo/eoEvalFuncPtr.h \
+		../TspEvo2/paradiseo/include/eo/eoEvalCounterThrowException.h \
+		../TspEvo2/paradiseo/include/eo/eoEvalFuncCounter.h \
+		../TspEvo2/paradiseo/include/eo/eoEvalTimeThrowException.h \
+		../TspEvo2/paradiseo/include/eo/eoEvalUserTimeThrowException.h \
+		../TspEvo2/paradiseo/include/eo/eoCombinedContinue.h \
+		../TspEvo2/paradiseo/include/eo/eoSteadyFitContinue.h \
+		../TspEvo2/paradiseo/include/eo/eoEvalContinue.h \
+		../TspEvo2/paradiseo/include/eo/eoFitContinue.h \
+		../TspEvo2/paradiseo/include/eo/eoPeriodicContinue.h \
+		../TspEvo2/paradiseo/include/eo/eoTimeContinue.h \
+		../TspEvo2/paradiseo/include/eo/eoCtrlCContinue.h \
+		../TspEvo2/paradiseo/include/eo/eoRandomSelect.h \
+		../TspEvo2/paradiseo/include/eo/eoSequentialSelect.h \
+		../TspEvo2/paradiseo/include/eo/eoDetTournamentSelect.h \
+		../TspEvo2/paradiseo/include/eo/eoProportionalSelect.h \
+		../TspEvo2/paradiseo/include/eo/eoFitnessScalingSelect.h \
+		../TspEvo2/paradiseo/include/eo/eoSelectFromWorth.h \
+		../TspEvo2/paradiseo/include/eo/eoPerf2Worth.h \
+		../TspEvo2/paradiseo/include/eo/eoLinearFitScaling.h \
+		../TspEvo2/paradiseo/include/eo/eoRankingSelect.h \
+		../TspEvo2/paradiseo/include/eo/eoRanking.h \
+		../TspEvo2/paradiseo/include/eo/eoSharingSelect.h \
+		../TspEvo2/paradiseo/include/eo/eoSharing.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoDistance.h \
+		../TspEvo2/paradiseo/include/eo/eoTruncatedSelectOne.h \
+		../TspEvo2/paradiseo/include/eo/eoSelectPerc.h \
+		../TspEvo2/paradiseo/include/eo/eoSelectMany.h \
+		../TspEvo2/paradiseo/include/eo/eoTruncatedSelectMany.h \
+		../TspEvo2/paradiseo/include/eo/eoDetSelect.h \
+		../TspEvo2/paradiseo/include/eo/eoGeneralBreeder.h \
+		../TspEvo2/paradiseo/include/eo/eoReduceMerge.h \
+		../TspEvo2/paradiseo/include/eo/eoSurviveAndDie.h \
+		../TspEvo2/paradiseo/include/eo/eoNDSorting.h \
+		../TspEvo2/paradiseo/include/eo/eoSGA.h \
+		../TspEvo2/paradiseo/include/eo/utils/checkpointing \
+		../TspEvo2/paradiseo/include/eo/utils/eoState.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoUpdater.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoFileMonitor.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoStdoutMonitor.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoOStreamMonitor.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoGnuplot1DMonitor.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoGnuplot.h \
+		../TspEvo2/paradiseo/include/eo/utils/pipecom.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoGnuplot1DSnapshot.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoRealVectorBounds.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoFileSnapshot.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoCheckPoint.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoSignal.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoScalarFitnessStat.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoAssembledFitnessStat.h \
+		../TspEvo2/paradiseo/include/eo/eoScalarFitnessAssembled.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoFDCStat.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoMOFitnessStat.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoPopStat.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoTimeCounter.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoGenCounter.h \
+		../TspEvo2/paradiseo/include/eo/utils/eoIntBounds.h \
+		../TspEvo2/paradiseo/include/eo/other/external_eo \
+		../TspEvo2/paradiseo/include/eo/other/eoExternalEO.h \
+		../TspEvo2/paradiseo/include/eo/other/eoExternalOpFunctions.h \
+		../TspEvo2/paradiseo/include/eo/eoCounter.h \
+		../TspEvo2/paradiseo/include/eo/PO.h \
+		../TspEvo2/paradiseo/include/eo/eoVectorParticle.h \
+		../TspEvo2/paradiseo/include/eo/eoBitParticle.h \
+		../TspEvo2/paradiseo/include/eo/eoRealParticle.h \
+		../TspEvo2/paradiseo/include/eo/eoParticleBestInit.h \
+		../TspEvo2/paradiseo/include/eo/eoInitializer.h \
+		../TspEvo2/paradiseo/include/eo/eoVelocityInit.h \
+		../TspEvo2/paradiseo/include/eo/eoTopology.h \
+		../TspEvo2/paradiseo/include/eo/eoNeighborhood.h \
+		../TspEvo2/paradiseo/include/eo/eoVelocity.h \
+		../TspEvo2/paradiseo/include/eo/eoStandardVelocity.h \
+		../TspEvo2/paradiseo/include/eo/eoRealBoundModifier.h \
+		../TspEvo2/paradiseo/include/eo/eoExtendedVelocity.h \
+		../TspEvo2/paradiseo/include/eo/eoIntegerVelocity.h \
+		../TspEvo2/paradiseo/include/eo/eoConstrictedVelocity.h \
+		../TspEvo2/paradiseo/include/eo/eoFixedInertiaWeightedVelocity.h \
+		../TspEvo2/paradiseo/include/eo/eoVariableInertiaWeightedVelocity.h \
+		../TspEvo2/paradiseo/include/eo/eoWeightUpdater.h \
+		../TspEvo2/paradiseo/include/eo/eoConstrictedVariableWeightVelocity.h \
+		../TspEvo2/paradiseo/include/eo/eoFlight.h \
+		../TspEvo2/paradiseo/include/eo/eoStandardFlight.h \
+		../TspEvo2/paradiseo/include/eo/eoBinaryFlight.h \
+		../TspEvo2/paradiseo/include/eo/eoSigBinaryFlight.h \
+		../TspEvo2/paradiseo/include/eo/eoStarTopology.h \
+		../TspEvo2/paradiseo/include/eo/eoSocialNeighborhood.h \
+		../TspEvo2/paradiseo/include/eo/eoLinearTopology.h \
+		../TspEvo2/paradiseo/include/eo/eoRingTopology.h \
+		../TspEvo2/paradiseo/include/eo/eoPSO.h \
+		../TspEvo2/paradiseo/include/eo/eoEasyPSO.h \
+		../TspEvo2/paradiseo/include/eo/eoSyncEasyPSO.h \
+		../TspEvo2/paradiseo/include/eo/eoRandomRealWeightUp.h \
+		../TspEvo2/paradiseo/include/eo/eoLinearDecreasingWeightUp.h \
+		../TspEvo2/paradiseo/include/eo/eoGaussRealWeightUp.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoAlgo.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoASEEA.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoEA.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoPopAlgo.h \
+		../TspEvo2/paradiseo/include/moeo/archive/moeoArchive.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoObjectiveVectorComparator.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoParetoObjectiveVectorComparator.h \
+		../TspEvo2/paradiseo/include/moeo/selection/moeoRandomSelect.h \
+		../TspEvo2/paradiseo/include/moeo/selection/moeoSelectOne.h \
+		../TspEvo2/paradiseo/include/moeo/selection/moeoSelectFromPopAndArch.h \
+		../TspEvo2/paradiseo/include/moeo/selection/moeoDetArchiveSelect.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoEasyEA.h \
+		../TspEvo2/paradiseo/include/moeo/diversity/moeoDiversityAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/diversity/moeoDummyDiversityAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/replacement/moeoReplacement.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoIBEA.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoExpBinaryIndicatorBasedFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoBinaryIndicatorBasedFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoIndicatorBasedFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/metric/moeoNormalizedSolutionVsSolutionBinaryMetric.h \
+		../TspEvo2/paradiseo/include/moeo/metric/moeoMetric.h \
+		../TspEvo2/paradiseo/include/moeo/utils/moeoConvertPopToObjectiveVectors.h \
+		../TspEvo2/paradiseo/include/moeo/replacement/moeoEnvironmentalReplacement.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoComparator.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoFitnessThenDiversityComparator.h \
+		../TspEvo2/paradiseo/include/moeo/selection/moeoDetTournamentSelect.h \
+		../TspEvo2/paradiseo/include/moeo/selection/moeoSelectors.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoMOGA.h \
+		../TspEvo2/paradiseo/include/moeo/diversity/moeoFrontByFrontSharingDiversityAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/diversity/moeoSharingDiversityAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoDiversityThenFitnessComparator.h \
+		../TspEvo2/paradiseo/include/moeo/distance/moeoDistance.h \
+		../TspEvo2/paradiseo/include/moeo/distance/moeoDistanceMatrix.h \
+		../TspEvo2/paradiseo/include/moeo/distance/moeoEuclideanDistance.h \
+		../TspEvo2/paradiseo/include/moeo/distance/moeoObjSpaceDistance.h \
+		../TspEvo2/paradiseo/include/moeo/utils/moeoObjectiveVectorNormalizer.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoDominanceRankFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/archive/moeoUnboundedArchive.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoDominanceBasedFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/utils/moeoDominanceMatrix.h \
+		../TspEvo2/paradiseo/include/moeo/replacement/moeoElitistReplacement.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoNSGA.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoDominanceDepthFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoObjectiveObjectiveVectorComparator.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoNSGAII.h \
+		../TspEvo2/paradiseo/include/moeo/diversity/moeoFrontByFrontCrowdingDiversityAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/diversity/moeoCrowdingDiversityAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoOneObjectiveComparator.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoPtrComparator.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoPLS1.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoUnifiedDominanceBasedLS.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoPopLS.h \
+		../TspEvo2/paradiseo/include/moeo/explorer/moeoPopNeighborhoodExplorer.h \
+		../TspEvo2/paradiseo/include/moeo/selection/moeoUnvisitedSelect.h \
+		../TspEvo2/paradiseo/include/moeo/selection/moeoNumberUnvisitedSelect.h \
+		../TspEvo2/paradiseo/include/moeo/explorer/moeoExhaustiveNeighborhoodExplorer.h \
+		../TspEvo2/paradiseo/include/mo/neighborhood/moNeighbor.h \
+		../TspEvo2/paradiseo/include/mo/neighborhood/moNeighborhood.h \
+		../TspEvo2/paradiseo/include/mo/eval/moEval.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoPLS2.h \
+		../TspEvo2/paradiseo/include/moeo/selection/moeoExhaustiveUnvisitedSelect.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoSEEA.h \
+		../TspEvo2/paradiseo/include/moeo/replacement/moeoGenerationalReplacement.h \
+		../TspEvo2/paradiseo/include/moeo/algo/moeoSPEA2.h \
+		../TspEvo2/paradiseo/include/moeo/diversity/moeoNearestNeighborDiversityAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoDominanceCountFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoDominanceCountRankingFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/archive/moeoFixedSizeArchive.h \
+		../TspEvo2/paradiseo/include/moeo/archive/moeo2DMinHypervolumeArchive.h \
+		../TspEvo2/paradiseo/include/moeo/archive/moeoBoundedArchive.h \
+		../TspEvo2/paradiseo/include/moeo/archive/moeoEpsilonHyperboxArchive.h \
+		../TspEvo2/paradiseo/include/moeo/archive/moeoFitDivBoundedArchive.h \
+		../TspEvo2/paradiseo/include/moeo/archive/moeoImprOnlyBoundedArchive.h \
+		../TspEvo2/paradiseo/include/moeo/archive/moeoSPEA2Archive.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoAggregativeComparator.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoEpsilonObjectiveVectorComparator.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoFitnessComparator.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoGDominanceObjectiveVectorComparator.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoStrictObjectiveVectorComparator.h \
+		../TspEvo2/paradiseo/include/moeo/comparator/moeoWeakObjectiveVectorComparator.h \
+		../TspEvo2/paradiseo/include/moeo/core/MOEO.h \
+		../TspEvo2/paradiseo/include/moeo/core/moeoBitVector.h \
+		../TspEvo2/paradiseo/include/moeo/core/moeoVector.h \
+		../TspEvo2/paradiseo/include/moeo/core/moeoEvalFunc.h \
+		../TspEvo2/paradiseo/include/moeo/core/moeoIntVector.h \
+		../TspEvo2/paradiseo/include/moeo/core/moeoObjectiveVector.h \
+		../TspEvo2/paradiseo/include/moeo/core/moeoObjectiveVectorTraits.h \
+		../TspEvo2/paradiseo/include/moeo/core/moeoRealObjectiveVector.h \
+		../TspEvo2/paradiseo/include/moeo/core/moeoRealVector.h \
+		../TspEvo2/paradiseo/include/moeo/distance/moeoManhattanDistance.h \
+		../TspEvo2/paradiseo/include/moeo/distance/moeoNormalizedDistance.h \
+		../TspEvo2/paradiseo/include/moeo/explorer/moeoFirstImprovingNeighborhoodExplorer.h \
+		../TspEvo2/paradiseo/include/moeo/explorer/moeoSubNeighborhoodExplorer.h \
+		../TspEvo2/paradiseo/include/moeo/explorer/moeoNoDesimprovingNeighborhoodExplorer.h \
+		../TspEvo2/paradiseo/include/moeo/explorer/moeoSimpleSubNeighborhoodExplorer.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoAggregationFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoSingleObjectivization.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoConstraintFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoCriterionBasedFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoDummyFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoReferencePointIndicatorBasedFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoScalarFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/fitness/moeoUnaryIndicatorBasedFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/hybridization/moeoDMLSGenUpdater.h \
+		../TspEvo2/paradiseo/include/moeo/hybridization/moeoDMLSMonOp.h \
+		../TspEvo2/paradiseo/include/moeo/metric/moeoAdditiveEpsilonBinaryMetric.h \
+		../TspEvo2/paradiseo/include/moeo/metric/moeoContributionMetric.h \
+		../TspEvo2/paradiseo/include/moeo/metric/moeoDistanceMetric.h \
+		../TspEvo2/paradiseo/include/moeo/metric/moeoEntropyMetric.h \
+		../TspEvo2/paradiseo/include/moeo/metric/moeoHypervolumeBinaryMetric.h \
+		../TspEvo2/paradiseo/include/moeo/metric/moeoHyperVolumeDifferenceMetric.h \
+		../TspEvo2/paradiseo/include/moeo/metric/moeoHyperVolumeMetric.h \
+		../TspEvo2/paradiseo/include/moeo/metric/moeoVecVsVecAdditiveEpsilonBinaryMetric.h \
+		../TspEvo2/paradiseo/include/moeo/metric/moeoVecVsVecEpsilonBinaryMetric.h \
+		../TspEvo2/paradiseo/include/moeo/metric/moeoVecVsVecMultiplicativeEpsilonBinaryMetric.h \
+		../TspEvo2/paradiseo/include/moeo/scalarStuffs/archive/moeoArchiveIndex.h \
+		../TspEvo2/paradiseo/include/moeo/scalarStuffs/archive/moeoIndexedArchive.h \
+		../TspEvo2/paradiseo/include/moeo/scalarStuffs/archive/moeoQuickUnboundedArchiveIndex.h \
+		../TspEvo2/paradiseo/include/moeo/scalarStuffs/distance/moeoAugmentedWeightedChebychevDistance.h \
+		../TspEvo2/paradiseo/include/moeo/scalarStuffs/fitness/moeoAchievementFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/scalarStuffs/fitness/moeoAchievementScalarizingFunctionMetricFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/scalarStuffs/distance/moeoAchievementScalarizingFunctionDistance.h \
+		../TspEvo2/paradiseo/include/moeo/scalarStuffs/fitness/moeoAugmentedAchievementScalarizingFunctionMetricFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/scalarStuffs/distance/moeoAugmentedAchievementScalarizingFunctionDistance.h \
+		../TspEvo2/paradiseo/include/moeo/scalarStuffs/fitness/moeoAugmentedWeightedChebychevMetricFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/scalarStuffs/fitness/moeoWeightedChebychevMetricFitnessAssignment.h \
+		../TspEvo2/paradiseo/include/moeo/scalarStuffs/distance/moeoWeightedChebychevDistance.h \
+		../TspEvo2/paradiseo/include/moeo/selection/moeoRouletteSelect.h \
+		../TspEvo2/paradiseo/include/moeo/selection/moeoStochTournamentSelect.h \
+		../TspEvo2/paradiseo/include/moeo/utils/moeoArchiveObjectiveVectorSavingUpdater.h \
+		../TspEvo2/paradiseo/include/moeo/utils/moeoArchiveUpdater.h \
+		../TspEvo2/paradiseo/include/moeo/utils/moeoAverageObjVecStat.h \
+		../TspEvo2/paradiseo/include/moeo/utils/moeoObjVecStat.h \
+		../TspEvo2/paradiseo/include/moeo/utils/moeoBestObjVecStat.h \
+		../TspEvo2/paradiseo/include/moeo/utils/moeoBinaryMetricSavingUpdater.h \
+		../TspEvo2/MOEO/tspdroute.h \
+		../TspEvo2/MOEO/tspobjectivevector.h \
+		../TspEvo2/tspdualobjectivevectortraits.h \
+		../TspEvo2/moroutegraph.h \
+		../TspEvo2/tspdualeval.h \
+		../TspEvo2/qsurfacemodelresultvertextsp.h \
+		../TspEvo2/tspdualsolverresultsurfaceviewmodel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\tspdualsolverresultsparetosurfaceviewmodel.o ..\TspEvo2\tspdualsolverresultsparetosurfaceviewmodel.cpp
+
 debug/qrc_qml.o: debug/qrc_qml.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\qrc_qml.o debug\qrc_qml.cpp
 
@@ -8205,6 +8958,9 @@ debug/moc_tspdualsolverresultsurfaceviewmodel.o: debug/moc_tspdualsolverresultsu
 
 debug/moc_qsurfacemodelresultvertextsp.o: debug/moc_qsurfacemodelresultvertextsp.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_qsurfacemodelresultvertextsp.o debug\moc_qsurfacemodelresultvertextsp.cpp
+
+debug/moc_tspdualsolverresultsparetosurfaceviewmodel.o: debug/moc_tspdualsolverresultsparetosurfaceviewmodel.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_tspdualsolverresultsparetosurfaceviewmodel.o debug\moc_tspdualsolverresultsparetosurfaceviewmodel.cpp
 
 ####### Install
 

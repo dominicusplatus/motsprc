@@ -26,6 +26,8 @@
 extern std::vector<std::vector <TspDRoute*>> TspRouteHistory;
 extern std::vector<eoPop <TspDRoute>> TspRoutePopulationsHistory;
 extern QList<TspDRoute> TspParetoOptimalGenerationRoutes;
+extern std::vector<std::vector <TspDRoute>>  TspParetoOptimalGenerationPopulations;
+
 extern  eoPop <TspDRoute> TspRoutes;
 extern  QList<TspDRoute> BestTspRoutes;
 

@@ -248,7 +248,7 @@ Rectangle {
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
                 columns: 2
-                rows : 8
+                rows : 9
 
                 Label {
                     text: "Algorithm"
@@ -391,6 +391,14 @@ Rectangle {
 
 
 
+                Label {
+                    text: "Elapsed (ms) : "
+                }
+
+
+                Label {
+                    text: solverModel.elapsed
+                }
 
 
                 /*

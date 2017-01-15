@@ -74,6 +74,7 @@ TspDRoute TspEvoSolverViewModel::GetPopulationBestRoute(eoPop<TspDRoute> pop)
 
 void TspEvoSolverViewModel::SolveMOEO()
 {
+    m_timer.restart();
     QString problemPath;
     QString pathRoot = QCoreApplication::applicationDirPath();
     if(dataSet == ALI535){
@@ -157,6 +158,8 @@ void TspEvoSolverViewModel::SolveMOEO()
              return;
          }
 
+         setelapsed(m_timer.nsecsElapsed()/1000000);
+        // m_elapsed = 100;   //;
 
          //now designate pareto optimal solutions for each archive
          int popinc = 0;
@@ -180,17 +183,14 @@ void TspEvoSolverViewModel::SolveMOEO()
             // TspParetoOptimalGenerationPopulations.push_back(fullArchive);
          }
 
-
-
          TspRoutes = pop;
          //now update the UI
           beginResetModel();
-
        m_rowCount = tspGenerations;
 
        ProcessPopulationHistory();
-
        endResetModel();
+
 
         //designate best solutions for last gen
         DesignateParetoFrontSolutionsForPopulation(4, TspRoutePopulationsHistory[TspRoutePopulationsHistory.size()-1]);
@@ -532,6 +532,21 @@ void TspEvoSolverViewModel::UpdateDataRange()
  {
      m_mapping.insertMulti(color, area);
  }
+
+ void TspEvoSolverViewModel::setelapsed (qint64 a)
+ {
+     m_elapsed =a;
+     emit elapsedChanged();
+ }
+ qint64 TspEvoSolverViewModel::getelapsed ()
+ {
+     return m_elapsed;
+ }
+
+
+
+
+
 
 
 

@@ -58,6 +58,7 @@
 #include "tspdualeval.h"
 #include "tspdualmutation.h"
 #include "tspdualobjvectorcomparator.h"
+#include <QElapsedTimer>
 
 typedef enum{
     MOGA =1,
@@ -98,6 +99,7 @@ class TspEvoSolverViewModel : public QAbstractTableModel
     Q_PROPERTY(qreal costsRangeStart READ getcostsRangeStart WRITE setcostsRangeStart NOTIFY costsRangeStartChanged)
     Q_PROPERTY(qreal costsRangeEnd READ getcostsRangeEnd WRITE setcostsRangeEnd NOTIFY costsRangeEndChanged)
 
+    Q_PROPERTY(qint64 elapsed READ getelapsed WRITE setelapsed NOTIFY elapsedChanged)
 
     Q_PROPERTY(TspEvoFitnessHistoryDataModel* historyModel READ gethistoryModel WRITE sethistoryModel NOTIFY historyModelChanged)
 public:
@@ -120,6 +122,7 @@ public:
 
      qreal getkfactor();
      qreal getarchSize();
+     qint64 getelapsed();
 
     TspEvoFitnessHistoryDataModel* gethistoryModel();
     void UpdateDataRange();
@@ -147,6 +150,7 @@ signals:
     void crossoverProbChanged(const qreal &newSize);
     void kfactorChanged(const qreal &newSize);
     void archSizeChanged(const qreal &newSize);
+    void elapsedChanged();
 
     void fitnessRangeStartChanged(const qreal &newSize);
     void fitnessRangeEndChanged(const qreal &newSize);
@@ -167,6 +171,7 @@ public slots:
     void setfitnessRangeEnd(qreal a);
     void setcostsRangeStart(qreal a);
     void setcostsRangeEnd(qreal a);
+    void setelapsed(qint64 a);
 
 
     void sethistoryModel(TspEvoFitnessHistoryDataModel* a);
@@ -193,6 +198,9 @@ private:
     QHash<QString, QRect> m_mapping;
     MoSolverAlgorithm solverAlgorithm = IBEA;
     TspDataset dataSet = ATH2;
+
+    QElapsedTimer m_timer;
+    qint64 m_elapsed = 0;
 
     int m_columnCount;
     int m_rowCount;

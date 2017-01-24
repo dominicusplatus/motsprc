@@ -8,8 +8,8 @@ import com.tspevo.data 1.0
 ApplicationWindow {
 
     visible: true
-    width: Screen.desktopAvailableWidth
-    height: Screen.desktopAvailableHeight * 0.9
+    width: 1200 // Screen.desktopAvailableWidth
+    height: 800 // Screen.desktopAvailableHeight * 0.9
 
 
     title: "ATH MOTSP"
@@ -17,8 +17,8 @@ ApplicationWindow {
 
 
     Rectangle{
-        width: Screen.desktopAvailableWidth
-        height: Screen.desktopAvailableHeight * 0.9
+        width: 1200 // Screen.desktopAvailableWidth
+        height: 800 // Screen.desktopAvailableHeight * 0.9
 
         TspSolverMainView {
             width:  parent.width

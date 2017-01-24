@@ -21,11 +21,9 @@ int main(int argc, char *argv[])
     qmlRegisterType<TspDualSolverResultSurfaceViewModel>("com.tspevo.data", 1, 0, "TspDualSolverResultSurfaceViewModel");
     qmlRegisterType<TspDualSolverResultsParetoSurfaceViewModel>("com.tspevo.data", 1, 0, "TspDualSolverResultsParetoSurfaceViewModel");
 
-    TspEvoSolverViewModel model;
+   // TspEvoSolverViewModel model;
     QQmlContext *ctxt = engine.rootContext();
-     engine.rootContext()->setContextProperty("model", &model);
-  //  ctxt->setContextProperty("model", TspEvoSolverViewModel());
-
+   //  engine.rootContext()->setContextProperty("model", &model);
     engine.load(QUrl(QLatin1String("qrc:/main.qml")));
 
      return app.exec();

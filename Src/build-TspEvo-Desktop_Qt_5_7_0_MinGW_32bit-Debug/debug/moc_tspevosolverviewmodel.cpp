@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_TspEvoSolverViewModel_t {
-    QByteArrayData data[50];
-    char stringdata0[761];
+    QByteArrayData data[53];
+    char stringdata0[795];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -42,43 +42,46 @@ QT_MOC_LITERAL(9, 140, 19), // "mutationProbChanged"
 QT_MOC_LITERAL(10, 160, 20), // "crossoverProbChanged"
 QT_MOC_LITERAL(11, 181, 14), // "kfactorChanged"
 QT_MOC_LITERAL(12, 196, 15), // "archSizeChanged"
-QT_MOC_LITERAL(13, 212, 24), // "fitnessRangeStartChanged"
-QT_MOC_LITERAL(14, 237, 22), // "fitnessRangeEndChanged"
-QT_MOC_LITERAL(15, 260, 22), // "costsRangeStartChanged"
-QT_MOC_LITERAL(16, 283, 20), // "costsRangeEndChanged"
-QT_MOC_LITERAL(17, 304, 19), // "historyModelChanged"
-QT_MOC_LITERAL(18, 324, 30), // "TspEvoFitnessHistoryDataModel*"
-QT_MOC_LITERAL(19, 355, 13), // "setPopulation"
-QT_MOC_LITERAL(20, 369, 1), // "a"
-QT_MOC_LITERAL(21, 371, 17), // "setpopulationSize"
-QT_MOC_LITERAL(22, 389, 14), // "setGenerations"
-QT_MOC_LITERAL(23, 404, 15), // "setMutationProb"
-QT_MOC_LITERAL(24, 420, 16), // "setCrossoverProb"
-QT_MOC_LITERAL(25, 437, 10), // "setkfactor"
-QT_MOC_LITERAL(26, 448, 11), // "setarchSize"
-QT_MOC_LITERAL(27, 460, 20), // "setfitnessRangeStart"
-QT_MOC_LITERAL(28, 481, 18), // "setfitnessRangeEnd"
-QT_MOC_LITERAL(29, 500, 18), // "setcostsRangeStart"
-QT_MOC_LITERAL(30, 519, 16), // "setcostsRangeEnd"
-QT_MOC_LITERAL(31, 536, 15), // "sethistoryModel"
-QT_MOC_LITERAL(32, 552, 5), // "Solve"
-QT_MOC_LITERAL(33, 558, 9), // "SolveMOEO"
-QT_MOC_LITERAL(34, 568, 9), // "GetResult"
-QT_MOC_LITERAL(35, 578, 9), // "SetMethod"
-QT_MOC_LITERAL(36, 588, 2), // "id"
-QT_MOC_LITERAL(37, 591, 10), // "SetDataset"
-QT_MOC_LITERAL(38, 602, 10), // "population"
-QT_MOC_LITERAL(39, 613, 14), // "populationSize"
-QT_MOC_LITERAL(40, 628, 11), // "generations"
-QT_MOC_LITERAL(41, 640, 12), // "mutationProb"
-QT_MOC_LITERAL(42, 653, 13), // "crossoverProb"
-QT_MOC_LITERAL(43, 667, 7), // "kfactor"
-QT_MOC_LITERAL(44, 675, 8), // "archSize"
-QT_MOC_LITERAL(45, 684, 17), // "fitnessRangeStart"
-QT_MOC_LITERAL(46, 702, 15), // "fitnessRangeEnd"
-QT_MOC_LITERAL(47, 718, 15), // "costsRangeStart"
-QT_MOC_LITERAL(48, 734, 13), // "costsRangeEnd"
-QT_MOC_LITERAL(49, 748, 12) // "historyModel"
+QT_MOC_LITERAL(13, 212, 14), // "elapsedChanged"
+QT_MOC_LITERAL(14, 227, 24), // "fitnessRangeStartChanged"
+QT_MOC_LITERAL(15, 252, 22), // "fitnessRangeEndChanged"
+QT_MOC_LITERAL(16, 275, 22), // "costsRangeStartChanged"
+QT_MOC_LITERAL(17, 298, 20), // "costsRangeEndChanged"
+QT_MOC_LITERAL(18, 319, 19), // "historyModelChanged"
+QT_MOC_LITERAL(19, 339, 30), // "TspEvoFitnessHistoryDataModel*"
+QT_MOC_LITERAL(20, 370, 13), // "setPopulation"
+QT_MOC_LITERAL(21, 384, 1), // "a"
+QT_MOC_LITERAL(22, 386, 17), // "setpopulationSize"
+QT_MOC_LITERAL(23, 404, 14), // "setGenerations"
+QT_MOC_LITERAL(24, 419, 15), // "setMutationProb"
+QT_MOC_LITERAL(25, 435, 16), // "setCrossoverProb"
+QT_MOC_LITERAL(26, 452, 10), // "setkfactor"
+QT_MOC_LITERAL(27, 463, 11), // "setarchSize"
+QT_MOC_LITERAL(28, 475, 20), // "setfitnessRangeStart"
+QT_MOC_LITERAL(29, 496, 18), // "setfitnessRangeEnd"
+QT_MOC_LITERAL(30, 515, 18), // "setcostsRangeStart"
+QT_MOC_LITERAL(31, 534, 16), // "setcostsRangeEnd"
+QT_MOC_LITERAL(32, 551, 10), // "setelapsed"
+QT_MOC_LITERAL(33, 562, 15), // "sethistoryModel"
+QT_MOC_LITERAL(34, 578, 5), // "Solve"
+QT_MOC_LITERAL(35, 584, 9), // "SolveMOEO"
+QT_MOC_LITERAL(36, 594, 9), // "GetResult"
+QT_MOC_LITERAL(37, 604, 9), // "SetMethod"
+QT_MOC_LITERAL(38, 614, 2), // "id"
+QT_MOC_LITERAL(39, 617, 10), // "SetDataset"
+QT_MOC_LITERAL(40, 628, 10), // "population"
+QT_MOC_LITERAL(41, 639, 14), // "populationSize"
+QT_MOC_LITERAL(42, 654, 11), // "generations"
+QT_MOC_LITERAL(43, 666, 12), // "mutationProb"
+QT_MOC_LITERAL(44, 679, 13), // "crossoverProb"
+QT_MOC_LITERAL(45, 693, 7), // "kfactor"
+QT_MOC_LITERAL(46, 701, 8), // "archSize"
+QT_MOC_LITERAL(47, 710, 17), // "fitnessRangeStart"
+QT_MOC_LITERAL(48, 728, 15), // "fitnessRangeEnd"
+QT_MOC_LITERAL(49, 744, 15), // "costsRangeStart"
+QT_MOC_LITERAL(50, 760, 13), // "costsRangeEnd"
+QT_MOC_LITERAL(51, 774, 7), // "elapsed"
+QT_MOC_LITERAL(52, 782, 12) // "historyModel"
 
     },
     "TspEvoSolverViewModel\0DidSolveGeneration\0"
@@ -87,7 +90,7 @@ QT_MOC_LITERAL(49, 748, 12) // "historyModel"
     "newSize\0generationsChanged\0"
     "mutationProbChanged\0crossoverProbChanged\0"
     "kfactorChanged\0archSizeChanged\0"
-    "fitnessRangeStartChanged\0"
+    "elapsedChanged\0fitnessRangeStartChanged\0"
     "fitnessRangeEndChanged\0costsRangeStartChanged\0"
     "costsRangeEndChanged\0historyModelChanged\0"
     "TspEvoFitnessHistoryDataModel*\0"
@@ -96,13 +99,13 @@ QT_MOC_LITERAL(49, 748, 12) // "historyModel"
     "setCrossoverProb\0setkfactor\0setarchSize\0"
     "setfitnessRangeStart\0setfitnessRangeEnd\0"
     "setcostsRangeStart\0setcostsRangeEnd\0"
-    "sethistoryModel\0Solve\0SolveMOEO\0"
-    "GetResult\0SetMethod\0id\0SetDataset\0"
-    "population\0populationSize\0generations\0"
-    "mutationProb\0crossoverProb\0kfactor\0"
-    "archSize\0fitnessRangeStart\0fitnessRangeEnd\0"
-    "costsRangeStart\0costsRangeEnd\0"
-    "historyModel"
+    "setelapsed\0sethistoryModel\0Solve\0"
+    "SolveMOEO\0GetResult\0SetMethod\0id\0"
+    "SetDataset\0population\0populationSize\0"
+    "generations\0mutationProb\0crossoverProb\0"
+    "kfactor\0archSize\0fitnessRangeStart\0"
+    "fitnessRangeEnd\0costsRangeStart\0"
+    "costsRangeEnd\0elapsed\0historyModel"
 };
 #undef QT_MOC_LITERAL
 
@@ -112,48 +115,50 @@ static const uint qt_meta_data_TspEvoSolverViewModel[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      30,   14, // methods
-      12,  246, // properties
+      32,   14, // methods
+      13,  260, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-      13,       // signalCount
+      14,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,  164,    2, 0x06 /* Public */,
-       3,    1,  165,    2, 0x06 /* Public */,
-       6,    1,  168,    2, 0x06 /* Public */,
-       8,    1,  171,    2, 0x06 /* Public */,
-       9,    1,  174,    2, 0x06 /* Public */,
-      10,    1,  177,    2, 0x06 /* Public */,
-      11,    1,  180,    2, 0x06 /* Public */,
-      12,    1,  183,    2, 0x06 /* Public */,
-      13,    1,  186,    2, 0x06 /* Public */,
-      14,    1,  189,    2, 0x06 /* Public */,
-      15,    1,  192,    2, 0x06 /* Public */,
-      16,    1,  195,    2, 0x06 /* Public */,
-      17,    1,  198,    2, 0x06 /* Public */,
+       1,    0,  174,    2, 0x06 /* Public */,
+       3,    1,  175,    2, 0x06 /* Public */,
+       6,    1,  178,    2, 0x06 /* Public */,
+       8,    1,  181,    2, 0x06 /* Public */,
+       9,    1,  184,    2, 0x06 /* Public */,
+      10,    1,  187,    2, 0x06 /* Public */,
+      11,    1,  190,    2, 0x06 /* Public */,
+      12,    1,  193,    2, 0x06 /* Public */,
+      13,    0,  196,    2, 0x06 /* Public */,
+      14,    1,  197,    2, 0x06 /* Public */,
+      15,    1,  200,    2, 0x06 /* Public */,
+      16,    1,  203,    2, 0x06 /* Public */,
+      17,    1,  206,    2, 0x06 /* Public */,
+      18,    1,  209,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      19,    1,  201,    2, 0x0a /* Public */,
-      21,    1,  204,    2, 0x0a /* Public */,
-      22,    1,  207,    2, 0x0a /* Public */,
-      23,    1,  210,    2, 0x0a /* Public */,
-      24,    1,  213,    2, 0x0a /* Public */,
-      25,    1,  216,    2, 0x0a /* Public */,
-      26,    1,  219,    2, 0x0a /* Public */,
-      27,    1,  222,    2, 0x0a /* Public */,
-      28,    1,  225,    2, 0x0a /* Public */,
-      29,    1,  228,    2, 0x0a /* Public */,
-      30,    1,  231,    2, 0x0a /* Public */,
-      31,    1,  234,    2, 0x0a /* Public */,
+      20,    1,  212,    2, 0x0a /* Public */,
+      22,    1,  215,    2, 0x0a /* Public */,
+      23,    1,  218,    2, 0x0a /* Public */,
+      24,    1,  221,    2, 0x0a /* Public */,
+      25,    1,  224,    2, 0x0a /* Public */,
+      26,    1,  227,    2, 0x0a /* Public */,
+      27,    1,  230,    2, 0x0a /* Public */,
+      28,    1,  233,    2, 0x0a /* Public */,
+      29,    1,  236,    2, 0x0a /* Public */,
+      30,    1,  239,    2, 0x0a /* Public */,
+      31,    1,  242,    2, 0x0a /* Public */,
+      32,    1,  245,    2, 0x0a /* Public */,
+      33,    1,  248,    2, 0x0a /* Public */,
 
  // methods: name, argc, parameters, tag, flags
-      32,    0,  237,    2, 0x02 /* Public */,
-      33,    0,  238,    2, 0x02 /* Public */,
-      34,    0,  239,    2, 0x02 /* Public */,
-      35,    1,  240,    2, 0x02 /* Public */,
-      37,    1,  243,    2, 0x02 /* Public */,
+      34,    0,  251,    2, 0x02 /* Public */,
+      35,    0,  252,    2, 0x02 /* Public */,
+      36,    0,  253,    2, 0x02 /* Public */,
+      37,    1,  254,    2, 0x02 /* Public */,
+      39,    1,  257,    2, 0x02 /* Public */,
 
  // signals: parameters
     QMetaType::Int,
@@ -164,46 +169,49 @@ static const uint qt_meta_data_TspEvoSolverViewModel[] = {
     QMetaType::Void, QMetaType::QReal,    7,
     QMetaType::Void, QMetaType::QReal,    7,
     QMetaType::Void, QMetaType::QReal,    7,
+    QMetaType::Void,
     QMetaType::Void, QMetaType::QReal,    7,
     QMetaType::Void, QMetaType::QReal,    7,
     QMetaType::Void, QMetaType::QReal,    7,
     QMetaType::Void, QMetaType::QReal,    7,
-    QMetaType::Void, 0x80000000 | 18,    7,
+    QMetaType::Void, 0x80000000 | 19,    7,
 
  // slots: parameters
-    QMetaType::Void, 0x80000000 | 4,   20,
-    QMetaType::Void, QMetaType::QReal,   20,
-    QMetaType::Void, QMetaType::QReal,   20,
-    QMetaType::Void, QMetaType::QReal,   20,
-    QMetaType::Void, QMetaType::QReal,   20,
-    QMetaType::Void, QMetaType::QReal,   20,
-    QMetaType::Void, QMetaType::QReal,   20,
-    QMetaType::Void, QMetaType::QReal,   20,
-    QMetaType::Void, QMetaType::QReal,   20,
-    QMetaType::Void, QMetaType::QReal,   20,
-    QMetaType::Void, QMetaType::QReal,   20,
-    QMetaType::Void, 0x80000000 | 18,   20,
+    QMetaType::Void, 0x80000000 | 4,   21,
+    QMetaType::Void, QMetaType::QReal,   21,
+    QMetaType::Void, QMetaType::QReal,   21,
+    QMetaType::Void, QMetaType::QReal,   21,
+    QMetaType::Void, QMetaType::QReal,   21,
+    QMetaType::Void, QMetaType::QReal,   21,
+    QMetaType::Void, QMetaType::QReal,   21,
+    QMetaType::Void, QMetaType::QReal,   21,
+    QMetaType::Void, QMetaType::QReal,   21,
+    QMetaType::Void, QMetaType::QReal,   21,
+    QMetaType::Void, QMetaType::QReal,   21,
+    QMetaType::Void, QMetaType::LongLong,   21,
+    QMetaType::Void, 0x80000000 | 19,   21,
 
  // methods: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Int,
-    QMetaType::Void, QMetaType::Int,   36,
-    QMetaType::Void, QMetaType::Int,   36,
+    QMetaType::Void, QMetaType::Int,   38,
+    QMetaType::Void, QMetaType::Int,   38,
 
  // properties: name, type, flags
-      38, 0x80000000 | 4, 0x0049510b,
-      39, QMetaType::QReal, 0x00495003,
-      40, QMetaType::QReal, 0x00495103,
-      41, QMetaType::QReal, 0x00495103,
+      40, 0x80000000 | 4, 0x0049510b,
+      41, QMetaType::QReal, 0x00495003,
       42, QMetaType::QReal, 0x00495103,
-      43, QMetaType::QReal, 0x00495003,
-      44, QMetaType::QReal, 0x00495003,
+      43, QMetaType::QReal, 0x00495103,
+      44, QMetaType::QReal, 0x00495103,
       45, QMetaType::QReal, 0x00495003,
       46, QMetaType::QReal, 0x00495003,
       47, QMetaType::QReal, 0x00495003,
       48, QMetaType::QReal, 0x00495003,
-      49, 0x80000000 | 18, 0x0049500b,
+      49, QMetaType::QReal, 0x00495003,
+      50, QMetaType::QReal, 0x00495003,
+      51, QMetaType::LongLong, 0x00495003,
+      52, 0x80000000 | 19, 0x0049500b,
 
  // properties: notify_signal_id
        1,
@@ -213,11 +221,12 @@ static const uint qt_meta_data_TspEvoSolverViewModel[] = {
        5,
        6,
        7,
-       8,
        9,
       10,
       11,
       12,
+       8,
+      13,
 
        0        // eod
 };
@@ -237,42 +246,44 @@ void TspEvoSolverViewModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c
         case 5: _t->crossoverProbChanged((*reinterpret_cast< const qreal(*)>(_a[1]))); break;
         case 6: _t->kfactorChanged((*reinterpret_cast< const qreal(*)>(_a[1]))); break;
         case 7: _t->archSizeChanged((*reinterpret_cast< const qreal(*)>(_a[1]))); break;
-        case 8: _t->fitnessRangeStartChanged((*reinterpret_cast< const qreal(*)>(_a[1]))); break;
-        case 9: _t->fitnessRangeEndChanged((*reinterpret_cast< const qreal(*)>(_a[1]))); break;
-        case 10: _t->costsRangeStartChanged((*reinterpret_cast< const qreal(*)>(_a[1]))); break;
-        case 11: _t->costsRangeEndChanged((*reinterpret_cast< const qreal(*)>(_a[1]))); break;
-        case 12: _t->historyModelChanged((*reinterpret_cast< const TspEvoFitnessHistoryDataModel*(*)>(_a[1]))); break;
-        case 13: _t->setPopulation((*reinterpret_cast< eoPop<TspDRoute>(*)>(_a[1]))); break;
-        case 14: _t->setpopulationSize((*reinterpret_cast< qreal(*)>(_a[1]))); break;
-        case 15: _t->setGenerations((*reinterpret_cast< qreal(*)>(_a[1]))); break;
-        case 16: _t->setMutationProb((*reinterpret_cast< qreal(*)>(_a[1]))); break;
-        case 17: _t->setCrossoverProb((*reinterpret_cast< qreal(*)>(_a[1]))); break;
-        case 18: _t->setkfactor((*reinterpret_cast< qreal(*)>(_a[1]))); break;
-        case 19: _t->setarchSize((*reinterpret_cast< qreal(*)>(_a[1]))); break;
-        case 20: _t->setfitnessRangeStart((*reinterpret_cast< qreal(*)>(_a[1]))); break;
-        case 21: _t->setfitnessRangeEnd((*reinterpret_cast< qreal(*)>(_a[1]))); break;
-        case 22: _t->setcostsRangeStart((*reinterpret_cast< qreal(*)>(_a[1]))); break;
-        case 23: _t->setcostsRangeEnd((*reinterpret_cast< qreal(*)>(_a[1]))); break;
-        case 24: _t->sethistoryModel((*reinterpret_cast< TspEvoFitnessHistoryDataModel*(*)>(_a[1]))); break;
-        case 25: _t->Solve(); break;
-        case 26: _t->SolveMOEO(); break;
-        case 27: { int _r = _t->GetResult();
+        case 8: _t->elapsedChanged(); break;
+        case 9: _t->fitnessRangeStartChanged((*reinterpret_cast< const qreal(*)>(_a[1]))); break;
+        case 10: _t->fitnessRangeEndChanged((*reinterpret_cast< const qreal(*)>(_a[1]))); break;
+        case 11: _t->costsRangeStartChanged((*reinterpret_cast< const qreal(*)>(_a[1]))); break;
+        case 12: _t->costsRangeEndChanged((*reinterpret_cast< const qreal(*)>(_a[1]))); break;
+        case 13: _t->historyModelChanged((*reinterpret_cast< const TspEvoFitnessHistoryDataModel*(*)>(_a[1]))); break;
+        case 14: _t->setPopulation((*reinterpret_cast< eoPop<TspDRoute>(*)>(_a[1]))); break;
+        case 15: _t->setpopulationSize((*reinterpret_cast< qreal(*)>(_a[1]))); break;
+        case 16: _t->setGenerations((*reinterpret_cast< qreal(*)>(_a[1]))); break;
+        case 17: _t->setMutationProb((*reinterpret_cast< qreal(*)>(_a[1]))); break;
+        case 18: _t->setCrossoverProb((*reinterpret_cast< qreal(*)>(_a[1]))); break;
+        case 19: _t->setkfactor((*reinterpret_cast< qreal(*)>(_a[1]))); break;
+        case 20: _t->setarchSize((*reinterpret_cast< qreal(*)>(_a[1]))); break;
+        case 21: _t->setfitnessRangeStart((*reinterpret_cast< qreal(*)>(_a[1]))); break;
+        case 22: _t->setfitnessRangeEnd((*reinterpret_cast< qreal(*)>(_a[1]))); break;
+        case 23: _t->setcostsRangeStart((*reinterpret_cast< qreal(*)>(_a[1]))); break;
+        case 24: _t->setcostsRangeEnd((*reinterpret_cast< qreal(*)>(_a[1]))); break;
+        case 25: _t->setelapsed((*reinterpret_cast< qint64(*)>(_a[1]))); break;
+        case 26: _t->sethistoryModel((*reinterpret_cast< TspEvoFitnessHistoryDataModel*(*)>(_a[1]))); break;
+        case 27: _t->Solve(); break;
+        case 28: _t->SolveMOEO(); break;
+        case 29: { int _r = _t->GetResult();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
-        case 28: _t->SetMethod((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 29: _t->SetDataset((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 30: _t->SetMethod((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 31: _t->SetDataset((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 12:
+        case 13:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
                 *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< TspEvoFitnessHistoryDataModel* >(); break;
             }
             break;
-        case 24:
+        case 26:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
@@ -340,44 +351,51 @@ void TspEvoSolverViewModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c
             }
         }
         {
-            typedef void (TspEvoSolverViewModel::*_t)(const qreal & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&TspEvoSolverViewModel::fitnessRangeStartChanged)) {
+            typedef void (TspEvoSolverViewModel::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&TspEvoSolverViewModel::elapsedChanged)) {
                 *result = 8;
                 return;
             }
         }
         {
             typedef void (TspEvoSolverViewModel::*_t)(const qreal & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&TspEvoSolverViewModel::fitnessRangeEndChanged)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&TspEvoSolverViewModel::fitnessRangeStartChanged)) {
                 *result = 9;
                 return;
             }
         }
         {
             typedef void (TspEvoSolverViewModel::*_t)(const qreal & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&TspEvoSolverViewModel::costsRangeStartChanged)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&TspEvoSolverViewModel::fitnessRangeEndChanged)) {
                 *result = 10;
                 return;
             }
         }
         {
             typedef void (TspEvoSolverViewModel::*_t)(const qreal & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&TspEvoSolverViewModel::costsRangeEndChanged)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&TspEvoSolverViewModel::costsRangeStartChanged)) {
                 *result = 11;
+                return;
+            }
+        }
+        {
+            typedef void (TspEvoSolverViewModel::*_t)(const qreal & );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&TspEvoSolverViewModel::costsRangeEndChanged)) {
+                *result = 12;
                 return;
             }
         }
         {
             typedef void (TspEvoSolverViewModel::*_t)(const TspEvoFitnessHistoryDataModel * & );
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&TspEvoSolverViewModel::historyModelChanged)) {
-                *result = 12;
+                *result = 13;
                 return;
             }
         }
     } else if (_c == QMetaObject::RegisterPropertyMetaType) {
         switch (_id) {
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 11:
+        case 12:
             *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< TspEvoFitnessHistoryDataModel* >(); break;
         }
     }
@@ -399,7 +417,8 @@ void TspEvoSolverViewModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c
         case 8: *reinterpret_cast< qreal*>(_v) = _t->getfitnessRangeEnd(); break;
         case 9: *reinterpret_cast< qreal*>(_v) = _t->getcostsRangeStart(); break;
         case 10: *reinterpret_cast< qreal*>(_v) = _t->getcostsRangeEnd(); break;
-        case 11: *reinterpret_cast< TspEvoFitnessHistoryDataModel**>(_v) = _t->gethistoryModel(); break;
+        case 11: *reinterpret_cast< qint64*>(_v) = _t->getelapsed(); break;
+        case 12: *reinterpret_cast< TspEvoFitnessHistoryDataModel**>(_v) = _t->gethistoryModel(); break;
         default: break;
         }
     } else if (_c == QMetaObject::WriteProperty) {
@@ -418,7 +437,8 @@ void TspEvoSolverViewModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c
         case 8: _t->setfitnessRangeEnd(*reinterpret_cast< qreal*>(_v)); break;
         case 9: _t->setcostsRangeStart(*reinterpret_cast< qreal*>(_v)); break;
         case 10: _t->setcostsRangeEnd(*reinterpret_cast< qreal*>(_v)); break;
-        case 11: _t->sethistoryModel(*reinterpret_cast< TspEvoFitnessHistoryDataModel**>(_v)); break;
+        case 11: _t->setelapsed(*reinterpret_cast< qint64*>(_v)); break;
+        case 12: _t->sethistoryModel(*reinterpret_cast< TspEvoFitnessHistoryDataModel**>(_v)); break;
         default: break;
         }
     } else if (_c == QMetaObject::ResetProperty) {
@@ -451,29 +471,29 @@ int TspEvoSolverViewModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 30)
+        if (_id < 32)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 30;
+        _id -= 32;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 30)
+        if (_id < 32)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 30;
+        _id -= 32;
     }
 #ifndef QT_NO_PROPERTIES
    else if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
             || _c == QMetaObject::ResetProperty || _c == QMetaObject::RegisterPropertyMetaType) {
         qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 13;
     } else if (_c == QMetaObject::QueryPropertyDesignable) {
-        _id -= 12;
+        _id -= 13;
     } else if (_c == QMetaObject::QueryPropertyScriptable) {
-        _id -= 12;
+        _id -= 13;
     } else if (_c == QMetaObject::QueryPropertyStored) {
-        _id -= 12;
+        _id -= 13;
     } else if (_c == QMetaObject::QueryPropertyEditable) {
-        _id -= 12;
+        _id -= 13;
     } else if (_c == QMetaObject::QueryPropertyUser) {
-        _id -= 12;
+        _id -= 13;
     }
 #endif // QT_NO_PROPERTIES
     return _id;
@@ -538,37 +558,43 @@ void TspEvoSolverViewModel::archSizeChanged(const qreal & _t1)
 }
 
 // SIGNAL 8
-void TspEvoSolverViewModel::fitnessRangeStartChanged(const qreal & _t1)
+void TspEvoSolverViewModel::elapsedChanged()
 {
-    void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
-    QMetaObject::activate(this, &staticMetaObject, 8, _a);
+    QMetaObject::activate(this, &staticMetaObject, 8, Q_NULLPTR);
 }
 
 // SIGNAL 9
-void TspEvoSolverViewModel::fitnessRangeEndChanged(const qreal & _t1)
+void TspEvoSolverViewModel::fitnessRangeStartChanged(const qreal & _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 9, _a);
 }
 
 // SIGNAL 10
-void TspEvoSolverViewModel::costsRangeStartChanged(const qreal & _t1)
+void TspEvoSolverViewModel::fitnessRangeEndChanged(const qreal & _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 10, _a);
 }
 
 // SIGNAL 11
-void TspEvoSolverViewModel::costsRangeEndChanged(const qreal & _t1)
+void TspEvoSolverViewModel::costsRangeStartChanged(const qreal & _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 11, _a);
 }
 
 // SIGNAL 12
-void TspEvoSolverViewModel::historyModelChanged(const TspEvoFitnessHistoryDataModel * & _t1)
+void TspEvoSolverViewModel::costsRangeEndChanged(const qreal & _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 12, _a);
+}
+
+// SIGNAL 13
+void TspEvoSolverViewModel::historyModelChanged(const TspEvoFitnessHistoryDataModel * & _t1)
+{
+    void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 13, _a);
 }
 QT_END_MOC_NAMESPACE

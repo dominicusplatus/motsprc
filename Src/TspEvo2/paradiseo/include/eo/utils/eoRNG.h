@@ -37,7 +37,9 @@ Old contact information: todos@geneura.ugr.es, http://geneura.ugr.es
  optimization levels so feel free to try your options and see what's best for
  you.
 */
-typedef unsigned long uint32_t;
+//typedef unsigned long uint32_t;
+#include <stdint.h>
+
 #else
 #if (! defined __sun)
 // The C99-standard defines uint32_t to be declared in stdint.h, but some

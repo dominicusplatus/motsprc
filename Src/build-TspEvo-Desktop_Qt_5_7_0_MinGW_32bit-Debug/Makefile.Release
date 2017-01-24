@@ -878,8 +878,6 @@ compiler_rcc_clean:
 release/qrc_qml.cpp: ../TspEvo2/qml.qrc \
 		H:/QT/5.7/mingw53_32/bin/rcc.exe \
 		../TspEvo2/TspSolverMainView.qml \
-		../TspEvo2/Data.qml \
-		../TspEvo2/NewButton.qml \
 		../TspEvo2/main.qml
 	H:\QT\5.7\mingw53_32\bin\rcc.exe -name qml ..\TspEvo2\qml.qrc -o release\qrc_qml.cpp
 
@@ -1274,6 +1272,8 @@ release/moc_tspevosolverviewmodel.cpp: H:/QT/5.7/mingw53_32/include/QtCore/QObje
 		../TspEvo2/tspdualeval.h \
 		../TspEvo2/tspdualmutation.h \
 		../TspEvo2/tspdualobjvectorcomparator.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/QElapsedTimer \
+		H:/QT/5.7/mingw53_32/include/QtCore/qelapsedtimer.h \
 		../TspEvo2/Model/tspevosolverviewmodel.h \
 		release/mocinclude.opt \
 		H:/QT/5.7/mingw53_32/bin/moc.exe
@@ -3021,6 +3021,8 @@ release/main.o: ../TspEvo2/main.cpp H:/QT/5.7/mingw53_32/include/QtGui/QGuiAppli
 		../TspEvo2/tspdualeval.h \
 		../TspEvo2/tspdualmutation.h \
 		../TspEvo2/tspdualobjvectorcomparator.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/QElapsedTimer \
+		H:/QT/5.7/mingw53_32/include/QtCore/qelapsedtimer.h \
 		H:/QT/5.7/mingw53_32/include/QtWidgets/QApplication \
 		H:/QT/5.7/mingw53_32/include/QtWidgets/qapplication.h \
 		H:/QT/5.7/mingw53_32/include/QtGui/qcursor.h \
@@ -3459,6 +3461,8 @@ release/tspevosolverviewmodel.o: ../TspEvo2/Model/tspevosolverviewmodel.cpp ../T
 		../TspEvo2/tspdualeval.h \
 		../TspEvo2/tspdualmutation.h \
 		../TspEvo2/tspdualobjvectorcomparator.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/QElapsedTimer \
+		H:/QT/5.7/mingw53_32/include/QtCore/qelapsedtimer.h \
 		H:/QT/5.7/mingw53_32/include/QtCore/QCoreApplication \
 		H:/QT/5.7/mingw53_32/include/QtCore/qcoreapplication.h \
 		H:/QT/5.7/mingw53_32/include/QtCore/qeventloop.h
@@ -3852,7 +3856,9 @@ release/tspevofitnesshistorydatamodel.o: ../TspEvo2/Model/tspevofitnesshistoryda
 		../TspEvo2/tspgenerationprogressmonitor.h \
 		../TspEvo2/tspdualeval.h \
 		../TspEvo2/tspdualmutation.h \
-		../TspEvo2/tspdualobjvectorcomparator.h
+		../TspEvo2/tspdualobjvectorcomparator.h \
+		H:/QT/5.7/mingw53_32/include/QtCore/QElapsedTimer \
+		H:/QT/5.7/mingw53_32/include/QtCore/qelapsedtimer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\tspevofitnesshistorydatamodel.o ..\TspEvo2\Model\tspevofitnesshistorydatamodel.cpp
 
 release/tsppathgraphview.o: ../TspEvo2/tsppathgraphview.cpp ../TspEvo2/tsppathgraphview.h \

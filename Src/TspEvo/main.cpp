@@ -17,11 +17,10 @@ int main(int argc, char *argv[])
     qmlRegisterType<TspEvoFitnessHistoryDataModel>("com.tspevo.data", 1, 0, "TspEvoFitnessHistoryDataModel");
     qmlRegisterType<TspPathGraphView>("com.tspevo.data", 1, 0, "TspPathGraphView");
 
-    TspEvoSolverViewModel model;
     QQmlContext *ctxt = engine.rootContext();
-     engine.rootContext()->setContextProperty("model", &model);
+   // TspEvoSolverViewModel model;
+   //  engine.rootContext()->setContextProperty("model", &model);
 
-  //  ctxt->setContextProperty("model", TspEvoSolverViewModel());
 
     engine.load(QUrl(QLatin1String("qrc:/main.qml")));
 
